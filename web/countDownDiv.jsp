@@ -60,7 +60,7 @@
     <%
         int dukeAudio = new Random().nextInt(7) + 1;
     %>
-    <audio id="audio1" src="sounds/duke/<%=dukeAudio%>.wav" preload="auto" autobuffer></audio>
+    <audio id="startAudio" src="sounds/duke/<%=dukeAudio%>.wav" preload="auto" autobuffer></audio>
     <audio id="finish" src="sounds/finish.wav" preload="auto" autobuffer /></audio>
 
 
@@ -83,12 +83,11 @@
     %>
     <span id="time"></span>
     <script>
-        EvalSound('audio1');
+        EvalSound('startAudio');
     </script>
     <%
     } else {
     %>
-    00:00
     00:00
     <%
         }

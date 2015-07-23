@@ -22,31 +22,38 @@
 <body>
 <h2>BF app</h2>
 
-<table>
+<table width = 100% border="1" cellpadding="10">
     <tr>
         <td>
             <jsp:include page="playersDiv.jsp"/>
         </td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
         <td>
             <jsp:include page="newGameDiv.jsp"/>
         </td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
         <td>
             <jsp:include page="topPlayerDiv.jsp"/>
         </td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
         <td>
             <jsp:include page="fightsDiv.jsp"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <jsp:include page="countDownDiv.jsp"/>
         </td>
     </tr>
 </table>
 
 
-<jsp:include page="countDownDiv.jsp"/>
-
 <br><br>
-Admin page <a href="http://localhost/phpmyadmin/" target="_blank">here</a>
+Admin page <a href="http://localhost/phpmyadmin/" target="_blank">here</a><br>
+Fork project at github <a href="https://github.com/tarcom/NykreditBF.git" target="_blank">here</a>
 
 
 </body>

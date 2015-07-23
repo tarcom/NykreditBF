@@ -33,8 +33,17 @@ public class DBHandler {
         System.out.println("bye");
     }
 
+    public static int getTablePlayerPoints(int playerId) {
+        String points = DBHandler.genericSelect("SELECT sum(points) FROM `tbl_points` WHERE name = '" + Util.playersReadyListList.get(playerId).get(0) + "'").get(0).get(0);
+        if (points == null) {
+            return 0;
+        }
+        return Integer.valueOf(points);
+    }
+
     public static List<List<String>> genericSelect(String sqlStr) {
 
+        System.out.println("genericSelect enter. sql="+sqlStr);
         Statement stmt = null;
         Connection connection = null;
         ResultSet rs;
@@ -50,7 +59,7 @@ public class DBHandler {
             rs = stmt.executeQuery(sqlStr);
 
 
-            System.out.println("columncount=" + rs.getMetaData().getColumnCount());
+            //System.out.println("columncount=" + rs.getMetaData().getColumnCount());
             while (rs.next()) {
                 List<String> list = new ArrayList<String>();
                 for (int i = 1; i < rs.getMetaData().getColumnCount() + 1; i++) {

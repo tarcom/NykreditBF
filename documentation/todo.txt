@@ -8,3 +8,5 @@ nice HP
 når man claimer en sejer, skal knappen disables
 
 lav INTENSE kamp... hvis summen af points er højere end... x, så kan det dårlige hold vinde 2 point fra det gode hold, men det gode hold kan kun vinde 1 point fra det dårlige (two points loosers match)
+
+håndtering af hvis man ikke er 4 eller 8 spillere...

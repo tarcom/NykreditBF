@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class Util {
 
-    public static List<List<String>> PR = new ArrayList<List<String>>();
+    public static int INTENSE_LEVEL = 5;
+
+    public static List<List<String>> playersReadyListList = new ArrayList<List<String>>();
 
 }

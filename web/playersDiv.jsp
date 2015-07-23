@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dk.skov.nykredit.bf.DBHandler" %>
+<%@ page import="dk.skov.nykredit.bf.Util" %>
 
 <%
     if (request.getParameter("addPlayer") != null && request.getParameter("addPlayer").length() > 1) {
@@ -46,11 +47,11 @@
             </td>
         </form>
 
-        <td style="border:1px solid black;">x</td>
+        <td style="border:1px solid black;"><%=DBHandler.genericSelect("SELECT sum(points) FROM `tbl_points` WHERE name = '" + player + "'").get(0).get(0)%></td>
 
-        <td style="border:1px solid black;">x</td>
+        <td style="border:1px solid black;"><%=DBHandler.genericSelect("SELECT count(*) FROM `tbl_fights` WHERE player_red_1 = '" + player + "' OR player_red_2 = '" + player + "' OR player_blue_1 = '" + player + "' OR player_blue_2 = '" + player + "'").get(0).get(0)%></td>
 
-        <td style="border:1px solid black;">x</td>
+        <td style="border:1px solid black;"><%=DBHandler.genericSelect("SELECT count(*) FROM `tbl_fights` WHERE ((player_red_1 = '" + player + "' OR player_red_2 = '" + player + "') AND match_winner = 'red') OR ((player_blue_1 = '" + player + "' OR player_blue_2 = '" + player + "') AND match_winner = 'blue')").get(0).get(0)%></td>
     </tr>
     <%
         }
