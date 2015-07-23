@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="NykreditBF:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/NykreditBF_war</output-path>
+    <root id="archive" name="NykreditBF_war.war">
+      <element id="artifact" artifact-name="NykreditBF:war exploded" />
+    </root>
+  </artifact>
+</component>

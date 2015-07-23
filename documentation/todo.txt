@@ -1,0 +1,10 @@
+use angular
+use that other cool angular thing... thing
+make angular windows to be resized
+add admin button that brings up the xampp control panel
+Logo / splashscreen
+nice HP
+
+når man claimer en sejer, skal knappen disables
+
+lav INTENSE kamp... hvis summen af points er højere end... x, så kan det dårlige hold vinde 2 point fra det gode hold, men det gode hold kan kun vinde 1 point fra det dårlige (two points loosers match)

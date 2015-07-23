@@ -1,0 +1,3 @@
+install XAMPP
+start apache and mySql
+import DB
