@@ -25,12 +25,17 @@
 <table width = 100% border="1" cellpadding="10">
     <tr>
         <td>
+            <jsp:include page="newGameDiv.jsp"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <jsp:include page="playersDiv.jsp"/>
         </td>
     </tr>
     <tr>
         <td>
-            <jsp:include page="newGameDiv.jsp"/>
+            <jsp:include page="countDownDiv.jsp"/>
         </td>
     </tr>
     <tr>
@@ -41,11 +46,6 @@
     <tr>
         <td>
             <jsp:include page="fightsDiv.jsp"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <jsp:include page="countDownDiv.jsp"/>
         </td>
     </tr>
 </table>

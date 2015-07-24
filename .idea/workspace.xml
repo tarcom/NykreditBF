@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31bc4928-4d0b-4f9b-b911-a4c17226570f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java" afterPath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java" afterPath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/countDownDiv.jsp" afterPath="$PROJECT_DIR$/web/countDownDiv.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/newGameDiv.jsp" afterPath="$PROJECT_DIR$/web/newGameDiv.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/playersDiv.jsp" afterPath="$PROJECT_DIR$/web/playersDiv.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentation/todo.txt" afterPath="$PROJECT_DIR$/documentation/todo.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/topPlayerDiv.jsp" afterPath="$PROJECT_DIR$/web/topPlayerDiv.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NykreditBF.iws" />
@@ -78,8 +68,8 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.1153846">
-              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+            <state vertical-scroll-proportion="-14.5">
+              <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -120,8 +110,8 @@
       <file leaf-file-name="topPlayerDiv.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1466432">
-              <caret line="70" column="71" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.7809187">
+              <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -155,7 +145,7 @@
       <file leaf-file-name="countDownDiv.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/countDownDiv.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7307692">
+            <state vertical-scroll-proportion="-39.23077">
               <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
               <folding />
             </state>
@@ -198,6 +188,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -214,12 +207,12 @@
         <option value="$PROJECT_DIR$/web/countDownDiv.html" />
         <option value="dbtable:/812e6c5d/8cf927d8-e2ae-4643-9400-f4ba3a7ae79e/nykreditbf..tbl_fights" />
         <option value="$PROJECT_DIR$/web/countDownDiv.jsp" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/documentation/todo.txt" />
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java" />
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java" />
         <option value="$PROJECT_DIR$/web/newGameDiv.jsp" />
         <option value="$PROJECT_DIR$/web/playersDiv.jsp" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/topPlayerDiv.jsp" />
       </list>
     </option>
@@ -806,6 +799,7 @@
       <method />
     </configuration>
     <configuration default="false" name="NykreditFB" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.24" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:80/" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="NykreditBF:war">
@@ -816,6 +810,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_NykreditBF_2" />
+        <option name="HTTP_PORT" value="80" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -889,12 +884,19 @@
       <option name="number" value="Default" />
       <updated>1437655720119</updated>
       <workItem from="1437655724007" duration="1223000" />
-      <workItem from="1437657079630" duration="28134000" />
+      <workItem from="1437657079630" duration="29749000" />
     </task>
+    <task id="LOCAL-00001" summary="added INTENSE fights + bugfixes">
+      <created>1437695755831</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1437695755831</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29357000" />
+    <option name="totallyTimeSpent" value="30972000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -947,6 +949,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added INTENSE fights + bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added INTENSE fights + bugfixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1075,14 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/countDownDiv.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7307692">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documentation/todo.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1130,14 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1153846">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/playersDiv.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.230769">
@@ -1146,10 +1136,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/countDownDiv.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-39.23077">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.5">
+          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1466432">
-          <caret line="70" column="71" selection-start-line="70" selection-start-column="71" selection-end-line="70" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.7809187">
+          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
           <folding />
         </state>
       </provider>
