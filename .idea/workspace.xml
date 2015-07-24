@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31bc4928-4d0b-4f9b-b911-a4c17226570f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/sounds/finish.mp3" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\birth_control.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\lets_rock.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\medieval.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\out_of_gum_x.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\payback_time.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\play.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\you_suck.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\duke\you_will_die.wav" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\NykreditBF\sounds\smb_world_clear.wav" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/topPlayerDiv.jsp" afterPath="$PROJECT_DIR$/web/topPlayerDiv.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NykreditBF.iws" />
@@ -65,11 +74,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.5">
-              <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.6576402">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -107,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topPlayerDiv.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="topPlayerDiv.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7809187">
-              <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+            <state vertical-scroll-proportion="-17.653847">
+              <caret line="75" column="73" selection-start-line="75" selection-start-column="73" selection-end-line="75" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -212,8 +221,8 @@
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java" />
         <option value="$PROJECT_DIR$/web/newGameDiv.jsp" />
         <option value="$PROJECT_DIR$/web/playersDiv.jsp" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/topPlayerDiv.jsp" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
       </list>
     </option>
   </component>
@@ -436,20 +445,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NykreditBF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NykreditBF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sounds" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -884,7 +879,7 @@
       <option name="number" value="Default" />
       <updated>1437655720119</updated>
       <workItem from="1437655724007" duration="1223000" />
-      <workItem from="1437657079630" duration="29749000" />
+      <workItem from="1437657079630" duration="30879000" />
     </task>
     <task id="LOCAL-00001" summary="added INTENSE fights + bugfixes">
       <created>1437695755831</created>
@@ -892,11 +887,17 @@
       <option name="project" value="LOCAL" />
       <updated>1437695755831</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="miner changes">
+      <created>1437697343548</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1437697343548</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30972000" />
+    <option name="totallyTimeSpent" value="32102000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -919,7 +920,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38203463" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -952,7 +953,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added INTENSE fights + bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added INTENSE fights + bugfixes" />
+    <MESSAGE value="miner changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="miner changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1144,18 +1146,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+    <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.5">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="75" column="73" selection-start-line="75" selection-start-column="73" selection-end-line="75" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7809187">
-          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.6576402">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
