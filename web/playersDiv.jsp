@@ -16,7 +16,7 @@
 
 %>
 
-<table align="left" style="border:2px solid black;border-collapse:collapse">
+<table style="border:2px solid black;border-collapse:collapse">
 
     <tr>
         <th style="border:1px solid black;">#</th>
@@ -43,7 +43,7 @@
         <form action="index.jsp" method="POST">
             <td style="border:1px solid black;">
                 <input type="hidden" name="PlayerReady" value="<%=player%>">
-                <input type="submit" value="Ready?">
+                <input type="submit" value="Ready?" class="btnPlayerReady">
             </td>
         </form>
 
@@ -62,10 +62,7 @@
             <td></td>
             <td></td>
             <td><input type="text" size="5" name="addPlayer"></td>
-            <td><input type="submit" value="add player"/></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="4"><input type="submit" value="add player"/></td>
         </tr>
     </form>
 

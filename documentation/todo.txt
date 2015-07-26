@@ -1,14 +1,15 @@
 use angular
 use that other cool angular thing... thing
 make angular windows to be resized
-add admin button that brings up the xampp control panel
 Logo / splashscreen
 nice HP
 
 når man claimer en sejer, skal knappen disables
 
-lav INTENSE kamp... hvis summen af points er højere end... x, så kan det dårlige hold vinde 2 point fra det gode hold, men det gode hold kan kun vinde 1 point fra det dårlige (two points loosers match)
+bug: hvis man selv skriver navne, så virker "intense" ikke. Den laver det intense hvis det oprindelig var det, og den laver det ikke selvom de nye navne burde være det.
 
-håndtering af hvis man ikke er 4 eller 8 spillere...
+generate new game minimum 2 players (5 players are bad??)
 
-JS: do not accept winner with less than two letters name
+reset active players on 1 hour timeout...
+
+button to deselect all active players

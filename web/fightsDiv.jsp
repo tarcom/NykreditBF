@@ -3,7 +3,7 @@
 
 
 <h4>Latest fights</h4>
-<table align="left" style="border:2px solid black;border-collapse:collapse">
+<table style="border:2px solid black;border-collapse:collapse">
     <tr>
         <th style="border:1px solid black;">#</th>
         <th style="border:1px solid black;">DateTime</th>

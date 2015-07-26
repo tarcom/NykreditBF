@@ -48,9 +48,8 @@
     };
 
 
-
     function EvalSound(soundobj) {
-        var thissound=document.getElementById(soundobj);
+        var thissound = document.getElementById(soundobj);
         thissound.play();
     }
 </script>
@@ -61,37 +60,52 @@
         int dukeAudio = new Random().nextInt(7) + 1;
     %>
     <audio id="startAudio" src="sounds/duke/<%=dukeAudio%>.wav" preload="auto" autobuffer></audio>
-    <audio id="finish" src="sounds/finish.wav" preload="auto" autobuffer /></audio>
+    <audio id="finish" src="sounds/finish.wav" preload="auto" autobuffer/>
+    </audio>
 
 
-    <form action="index.jsp" method="POST">
-        <input type="hidden" name="startTimer" value="true">
-        <select name="playtime">
-            <option value="5">5 sec</option>
-            <option value="60">1 min</option>
-            <option value="120" selected="selected">2 min</option>
-            <option value="180">3 min</option>
-            <option value="240">4 min</option>
-            <option value="300">5 min</option>
-        </select>
-        <input type="submit" value="Start Timer!">
-    </form>
+    <table>
+        <tr>
+            <td>
+                <form action="index.jsp" method="POST">
+                    <input type="hidden" name="startTimer" value="true">
+                    <select name="playtime" class="btn">
+                        <option value="5">5 sec</option>
+                        <option value="60">1 min</option>
+                        <option value="120" selected="selected">2 min</option>
+                        <option value="180">3 min</option>
+                        <option value="240">4 min</option>
+                        <option value="300">5 min</option>
+                    </select>
 
-    Countdown:
-    <%
-        if (request.getParameter("startTimer") != null) {
-    %>
-    <span id="time"></span>
-    <script>
-        EvalSound('startAudio');
-    </script>
-    <%
-    } else {
-    %>
-    00:00
-    <%
-        }
-    %>
+                    <input type="submit" value="Start Timer!" class="btn green large">
+
+
+
+                </form>
+
+            </td>
+            <td>
+                <p style="font-size:50px; color: red";>
+                    Countdown:
+                    <%
+                        if (request.getParameter("startTimer") != null) {
+                    %>
+                    <span id="time"></span>
+                    <script>
+                        EvalSound('startAudio');
+                    </script>
+                    <%
+                    } else {
+                    %>
+                    00:00
+                    <%
+                        }
+                    %>
+                </p>
+            </td>
+        </tr>
+    </table>
 
 
 

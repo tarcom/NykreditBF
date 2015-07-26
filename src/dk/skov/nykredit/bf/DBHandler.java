@@ -48,7 +48,7 @@ public class DBHandler {
         Connection connection = null;
         ResultSet rs;
 
-        List<List<String>> results = new ArrayList<List<String>>();
+        List<List<String>> results = new ArrayList<>();
 
         try {
             connection = getConnection();
@@ -61,7 +61,7 @@ public class DBHandler {
 
             //System.out.println("columncount=" + rs.getMetaData().getColumnCount());
             while (rs.next()) {
-                List<String> list = new ArrayList<String>();
+                List<String> list = new ArrayList<>();
                 for (int i = 1; i < rs.getMetaData().getColumnCount() + 1; i++) {
                     list.add(rs.getString(i));
                 }

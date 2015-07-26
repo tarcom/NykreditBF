@@ -15,7 +15,7 @@ public class Util {
 
     public static int INTENSE_LEVEL = 5;
 
-    public static List<List<String>> playersReadyListList = new ArrayList<List<String>>();
+    public static List<List<String>> playersReadyListList = new ArrayList<>();
 
 
     public static String t1Intense;
@@ -39,7 +39,7 @@ public class Util {
         if (request.getParameter("newGame") != null) {
             Util.playersReadyListList = DBHandler.genericSelect("SELECT name FROM tbl_players where playerReady = 1 ORDER BY RAND() LIMIT 8");
         }
-        ArrayList<String> dummy = new ArrayList<String>();
+        ArrayList<String> dummy = new ArrayList<>();
         dummy.add("");
 
         for (int i = Util.playersReadyListList.size(); i < 8; i++) {
@@ -90,12 +90,14 @@ public class Util {
         int t1TeamDiffInt = (t1r1 + t1r2) - (t1b1 + t1b2);
         t1TeamDiff = String.valueOf(t1TeamDiffInt).replaceAll("-", "");
 
+        String intenseStrRed = " <font color=red>INTENSE!!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning blue team takes 2 points!</font>";
+        String intenseStrBlue = " <font color=blue>INTENSE!!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning blue team takes 2 points!</font>";
         t1Intense = "";
         if (t1TeamDiffInt >= Util.INTENSE_LEVEL) {
-            t1TeamDiff += " !!!!!<font color=red>INTENSE</font> " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning blue team takes 2 points!";
+            t1TeamDiff += intenseStrBlue;
             t1Intense = "t1b";
         } else if (t1TeamDiffInt <= Util.INTENSE_LEVEL * -1) {
-            t1TeamDiff += " !!!!!<font color=red>INTENSE</font> " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning red team takes 2 points!";
+            t1TeamDiff += intenseStrRed;
             t1Intense = "t1r";
         }
 
@@ -110,13 +112,43 @@ public class Util {
 
         t2Intense = "";
         if (t2TeamDiffInt >= Util.INTENSE_LEVEL) {
-            t2TeamDiff += "<font color=red>INTENSE</font> !!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning blue team takes 2 points!";
+            t2TeamDiff += intenseStrBlue;
             t2Intense = "t2b";
         } else if (t2TeamDiffInt <= Util.INTENSE_LEVEL * -1) {
-            t2TeamDiff += "<font color=red>INTENSE</font> !!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning red team takes 2 points!";
+            t2TeamDiff += intenseStrRed;
             t2Intense = "t2r";
         }
+    }
+
+    public static String generateScoreboard(String sql) {
+        String returnString = "<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n" +
+                "                <tr>\n" +
+                "                    <th style=\"border:1px solid black;\">#</th>\n" +
+                "                    <th style=\"border:1px solid black;\">Name</th>\n" +
+                "                    <th style=\"border:1px solid black;\">points</th>\n" +
+                "                    <th style=\"border:1px solid black;\">games played</th>\n" +
+                "                </tr>\n";
 
 
+                int i = 0;
+                //String sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \\\"*SUM*\\\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999)) as sumResult";
+                for (List<String> playerList : DBHandler.genericSelect(sql)) {
+
+
+                    returnString += "<tr>\n" +
+                            "                    <td style=\"border:1px solid black;\">" + ++i + "\n" +
+                            "                    </td>\n" +
+                            "                    <td style=\"border:1px solid black;\">" + playerList.get(0) + "\n" +
+                            "                    </td>\n" +
+                            "                    <td style=\"border:1px solid black;\">" + playerList.get(1) + "\n" +
+                            "                    </td>\n" +
+                            "                    <td style=\"border:1px solid black;\">" + playerList.get(2) + "\n" +
+                            "                    </td>\n" +
+                            "                </tr>\n";
+                }
+
+                returnString += "</table>";
+
+        return returnString;
     }
 }
