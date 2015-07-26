@@ -1,5 +1,6 @@
 <%@ page import="dk.skov.nykredit.bf.DBHandler" %>
 <%@ page import="java.util.List" %>
+<%@ page import="dk.skov.nykredit.bf.Util" %>
 <%--
   Created by IntelliJ IDEA.
   User: aogj
@@ -21,6 +22,10 @@
 </head>
 <body>
 <h2>BF app</h2>
+
+<%
+    Util.updateModel(request);
+%>
 
 <table width = 100% border="1" cellpadding="10">
     <tr>

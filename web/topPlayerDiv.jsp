@@ -16,7 +16,7 @@
                 </tr>
                 <%
                     int i = 0;
-                    String sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 20)) as sumResult";
+                    String sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999)) as sumResult";
                     for (List<String> playerList : DBHandler.genericSelect(sql)) {
                 %>
                 <tr>
@@ -47,7 +47,7 @@
                 </tr>
                 <%
                     i = 0;
-                    sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 30) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 20)) as sumResult";
+                    sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 30) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 30)) as sumResult";
                     for (List<String> playerList : DBHandler.genericSelect(sql)) {
                 %>
                 <tr>
@@ -77,7 +77,7 @@
                 </tr>
                 <%
                     i = 0;
-                    sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 7) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 20)) as sumResult";
+                    sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 7) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 7)) as sumResult";
                     for (List<String> playerList : DBHandler.genericSelect(sql)) {
                 %>
                 <tr>

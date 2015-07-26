@@ -127,16 +127,22 @@ public class DBHandler {
 
         int sign = (winColor.equalsIgnoreCase("red") ? 1 : -1);
 
-            DBHandler.executeUpdateDb("INSERT INTO `tbl_points`(`name`, `points`, `winning_table`) VALUES ('" + r1 + "', " + (pointsAtSteake * sign) + ", " + winningTable + ")");
+        DBHandler.executeUpdateDb("INSERT INTO `tbl_points`(`name`, `points`, `winning_table`) VALUES ('" + r1 + "', " + (pointsAtSteake * sign) + ", " + winningTable + ")");
+        if (!r2.isEmpty()) {
             DBHandler.executeUpdateDb("INSERT INTO `tbl_points`(`name`, `points`, `winning_table`) VALUES ('" + r2 + "', " + (pointsAtSteake * sign) + ", " + winningTable + ")");
-            DBHandler.executeUpdateDb("INSERT INTO `tbl_points`(`name`, `points`, `winning_table`) VALUES ('" + b1 + "', " + (pointsAtSteake * -sign) + ", " + winningTable + ")");
+        }
+
+        DBHandler.executeUpdateDb("INSERT INTO `tbl_points`(`name`, `points`, `winning_table`) VALUES ('" + b1 + "', " + (pointsAtSteake * -sign) + ", " + winningTable + ")");
+        if (!b2.isEmpty()) { //normal case. two against two.
             DBHandler.executeUpdateDb("INSERT INTO `tbl_points`(`name`, `points`, `winning_table`) VALUES ('" + b2 + "', " + (pointsAtSteake * -sign) + ", " + winningTable + ")");
-
-
+        } else if (b2.isEmpty() && !r2.isEmpty()) { //double points to blue side, as one player won against two players
+            DBHandler.executeUpdateDb("INSERT INTO `tbl_points`(`name`, `points`, `winning_table`) VALUES ('" + b1 + "', " + (pointsAtSteake * -sign) + ", " + winningTable + ")");
+        }
 
     }
 
     public static int executeUpdateDb(String sqlStr) {
+        System.out.println("executeUpdateDb Enter. sqlStr=" + sqlStr);
         Statement stmt = null;
         Connection connection = null;
         try {
@@ -161,13 +167,3 @@ public class DBHandler {
 
     }
 }
-
-
-/*
-SELECT name, sum(points), count(*)
-FROM `tbl_points`
-WHERE (DATEDIFF(NOW(), `timestamp`) < 20)
-group by name
-order by sum(points) desc
-
- */
