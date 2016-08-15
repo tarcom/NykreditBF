@@ -1,3 +1,0 @@
-install XAMPP as default.
-start apache and mySql (user root, not passwd)
-import DB from /sql/nykreditbf.sql (consider cleaning all tables)
