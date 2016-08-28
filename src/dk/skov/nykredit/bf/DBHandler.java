@@ -1,5 +1,8 @@
 package dk.skov.nykredit.bf;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +25,123 @@ public class DBHandler {
         //DBHandler dbHandler = new DBHandler();
 
         //dbHandler.insertPlayer("from main");
-        List<List<String>> results = DBHandler.genericSelect("SELECT `id`, `name`, `oprettet` FROM `tbl_players`");
+//        List<List<String>> results = DBHandler.genericSelect("SELECT `id`, `name`, `oprettet` FROM `tbl_players`");
+//
+//        for (List<String> result : results) {
+//            System.out.println(result.get(0));
+//            System.out.println(result.get(1));
+//            System.out.println(result.get(2));
+//        }
 
-        for (List<String> result : results) {
-            System.out.println(result.get(0));
-            System.out.println(result.get(1));
-            System.out.println(result.get(2));
-        }
+        getNumberOfGamlesPlayed("alsk");
 
         System.out.println("bye");
     }
 
-    public static int getTablePlayerPoints(int playerId) {
+    @Deprecated
+    public static int getTablePlayerPointsOLD(int playerId) {
         String points = DBHandler.genericSelect("SELECT sum(points) FROM `tbl_points` WHERE name = '" + Util.playersReadyListList.get(playerId).get(0) + "'").get(0).get(0);
+        if (points == null) {
+            return 0;
+        }
+        return Integer.valueOf(points);
+    }
+
+    public static List<String> getPlayers() {
+        return getPlayers(999999999);
+    }
+
+    public static List<String> getPlayers(int daysBackHistory) {
+        String sql = "SELECT DISTINCT(player_red_1) FROM `tbl_fights` \n" +
+                "where (DATEDIFF(NOW(), `timestamp`) < 9999)\n" +
+                "UNION\n" +
+                "SELECT DISTINCT(player_red_2) FROM `tbl_fights` \n" +
+                "where (DATEDIFF(NOW(), `timestamp`) < 9999)\n" +
+                "UNION\n" +
+                "SELECT DISTINCT(player_blue_1) FROM `tbl_fights` \n" +
+                "where (DATEDIFF(NOW(), `timestamp`) < 9999)\n" +
+                "UNION\n" +
+                "SELECT DISTINCT(player_blue_2) FROM `tbl_fights` \n" +
+                "where (DATEDIFF(NOW(), `timestamp`) < 9999)";
+        List<List<String>> genericSelect = genericSelect(sql);
+
+        List<String> players = new ArrayList<>();
+        for (List<String> s : genericSelect) {
+            players.add(s.get(0));
+        }
+
+        return players;
+    }
+
+    public static int getGamesPlayed(String playerName) {
+        return getGamesPlayed(playerName, 9999999);
+    }
+
+    public static int getGamesPlayed(String playerName, int daysBackHistory) {
+        String sql = "SELECT count(*) FROM `tbl_fights` \n" +
+                "WHERE player_red_1 = '" + playerName + "'\n" +
+                "or player_red_2 = '" + playerName + "'\n" +
+                "or player_blue_1 = '" + playerName + "'\n" +
+                "or player_blue_2 = '" + playerName + "'\n" +
+                "and (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")";
+        String gamesPlayed = genericSelect(sql).get(0).get(0);
+        if (gamesPlayed == null) {
+            return 0;
+        }
+
+
+        return Integer.valueOf(gamesPlayed);
+    }
+
+    public static int getTablePlayerPoints(int playerId) {
+        return getTablePlayerPoints(playerId, 999999999);
+    }
+
+    public static int getTablePlayerPoints(int playerId, int daysBackHistory) {
+        String player = Util.playersReadyListList.get(playerId).get(0);
+        return getTablePlayerPoints(player, daysBackHistory);
+    }
+
+    public static int getTablePlayerPoints(String playerName) {
+        return getTablePlayerPoints(playerName, 999999999);
+    }
+
+    public static int getTablePlayerPoints(String playerName, int daysBackHistory) {
+        System.out.println("playerName=" + playerName);
+        if (playerName == null || "".equalsIgnoreCase(playerName)) {
+            return 0;
+        }
+        String points = DBHandler.genericSelect("" +
+                "select sum(\n" +
+                "(    \n" +
+                "SELECT IFNULL(sum(points_at_steake),0) FROM `tbl_fights` \n" +
+                "WHERE (player_red_1 = '" + playerName + "' or player_red_2 = '" + playerName + "')\n" +
+                "and match_winner = \"red\"\n" +
+                "and (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")\n" +
+                ")\n" +
+                "+\n" +
+                "(\n" +
+                "SELECT IFNULL(sum(points_at_steake),0) FROM `tbl_fights` \n" +
+                "WHERE (player_blue_1 = '" + playerName + "' or player_blue_2 = '" + playerName + "')\n" +
+                "and match_winner = \"blue\"\n" +
+                "and (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")\n" +
+                ")\n" +
+                "-\n" +
+                "(    \n" +
+                "SELECT IFNULL(sum(points_at_steake),0) FROM `tbl_fights` \n" +
+                "WHERE (player_red_1 = '" + playerName + "' or player_red_2 = '" + playerName + "')\n" +
+                "and match_winner = \"blue\"\n" +
+                "and (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")\n" +
+                ")\n" +
+                "-\n" +
+                "(\n" +
+                "SELECT IFNULL(sum(points_at_steake),0) FROM `tbl_fights` \n" +
+                "WHERE (player_blue_1 = '" + playerName + "' or player_blue_2 = '" + playerName + "')\n" +
+                "and match_winner = \"red\"\n" +
+                "and (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")\n" +
+                ")\n" +
+                ")" +
+                "").get(0).get(0);
         if (points == null) {
             return 0;
         }
@@ -43,7 +150,7 @@ public class DBHandler {
 
     public static List<List<String>> genericSelect(String sqlStr) {
 
-        System.out.println("genericSelect enter. sql="+sqlStr);
+        System.out.println("genericSelect enter. sql=" + sqlStr);
         Statement stmt = null;
         Connection connection = null;
         ResultSet rs;
@@ -166,4 +273,44 @@ public class DBHandler {
         }
 
     }
+
+    public static int getNumberOfGamlesPlayed(String playerName) {
+        Connection dbConnection = null;
+        PreparedStatement preparedStatement = null;
+
+        int count = -1;
+
+        String selectSQL = "SELECT *\n" +
+                "FROM tbl_fights\n" +
+                "where player_red_1 or player_red_2 or player_blue_1 or player_blue_2 = ?";
+
+        try {
+            dbConnection = getConnection();
+            preparedStatement = dbConnection.prepareStatement(selectSQL);
+            preparedStatement.setString(1, playerName);
+
+            // execute select SQL stetement
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt("count");
+                System.out.println("count=" + count);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (dbConnection != null) {
+                    dbConnection.close();
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return count;
+    }
+
 }

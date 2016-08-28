@@ -47,7 +47,8 @@
             </td>
         </form>
 
-        <td style="border:1px solid black;"><%=DBHandler.genericSelect("SELECT sum(points) FROM `tbl_points` WHERE name = '" + player + "'").get(0).get(0)%></td>
+        <%--<td style="border:1px solid black;"><%=DBHandler.genericSelect("SELECT sum(points) FROM `tbl_points` WHERE name = '" + player + "'").get(0).get(0)%></td>--%>
+        <td style="border:1px solid black;"><%=DBHandler.getTablePlayerPoints(player)%></td>
 
         <td style="border:1px solid black;"><%=DBHandler.genericSelect("SELECT count(*) FROM `tbl_fights` WHERE player_red_1 = '" + player + "' OR player_red_2 = '" + player + "' OR player_blue_1 = '" + player + "' OR player_blue_2 = '" + player + "'").get(0).get(0)%></td>
 

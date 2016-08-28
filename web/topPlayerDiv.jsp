@@ -10,22 +10,25 @@
 <table cellpadding="10" frame="1">
     <tr>
         <td>
-            <h4>All-times</h4>
-            <%=Util.generateScoreboard("select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999)) as sumResult")%>
-        </td>
-        <td>
-            <h4>Last rolling month</h4>
-            <%=Util.generateScoreboard("select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 30) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 30)) as sumResult")%>
-
+            <h4>Last rolling day</h4>
+            <%=Util.generateScoreboard(1)%>
         </td>
         <td>
             <h4>Last rolling week</h4>
-            <%=Util.generateScoreboard("select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 7) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 7)) as sumResult")%>
+            <%=Util.generateScoreboard(7)%>
         </td>
         <td>
-            <h4>Most active players</h4>
-            <%=Util.generateScoreboard("select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 7) group by name order by count(points) desc) as mainResult UNION ALL select * from (SELECT \"*SUM*\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 7)) as sumResult")%>
+            <h4>Last rolling month</h4>
+            <%=Util.generateScoreboard(30)%>
         </td>
+        <td>
+            <h4>All-times</h4>
+            <%=Util.generateScoreboard(9999999)%>
+        </td>
+        <%--<td>--%>
+            <%--<h4>Most active players</h4>--%>
+            <%--<%=Util.generateScoreboard(9999999)%>--%>
+        <%--</td>--%>
         <%--<td>--%>
             <%--<h4>Latest active players</h4>--%>
             <%--<%--%>

@@ -90,7 +90,7 @@ public class Util {
         int t1TeamDiffInt = (t1r1 + t1r2) - (t1b1 + t1b2);
         t1TeamDiff = String.valueOf(t1TeamDiffInt).replaceAll("-", "");
 
-        String intenseStrRed = " <font color=red>INTENSE!!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning blue team takes 2 points!</font>";
+        String intenseStrRed = " <font color=red>INTENSE!!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning red team takes 2 points!</font>";
         String intenseStrBlue = " <font color=blue>INTENSE!!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning blue team takes 2 points!</font>";
         t1Intense = "";
         if (t1TeamDiffInt >= Util.INTENSE_LEVEL) {
@@ -118,6 +118,38 @@ public class Util {
             t2TeamDiff += intenseStrRed;
             t2Intense = "t2r";
         }
+    }
+
+    public static String generateScoreboard(int daysBackHistory) {
+        String returnString = "<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n" +
+                "                <tr>\n" +
+                "                    <th style=\"border:1px solid black;\">#</th>\n" +
+                "                    <th style=\"border:1px solid black;\">Name</th>\n" +
+                "                    <th style=\"border:1px solid black;\">points</th>\n" +
+                "                    <th style=\"border:1px solid black;\">games played</th>\n" +
+                "                </tr>\n";
+
+
+        int i = 0;
+        //String sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \\\"*SUM*\\\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999)) as sumResult";
+        for (List<String> playerList : ScoreBoardGenerator.getScore(daysBackHistory)) {
+
+
+            returnString += "<tr>\n" +
+                    "                    <td style=\"border:1px solid black;\">" + ++i + "\n" +
+                    "                    </td>\n" +
+                    "                    <td style=\"border:1px solid black;\">" + playerList.get(0) + "\n" +
+                    "                    </td>\n" +
+                    "                    <td style=\"border:1px solid black;\">" + playerList.get(1) + "\n" +
+                    "                    </td>\n" +
+                    "                    <td style=\"border:1px solid black;\">" + playerList.get(2) + "\n" +
+                    "                    </td>\n" +
+                    "                </tr>\n";
+        }
+
+        returnString += "</table>";
+
+        return returnString;
     }
 
     public static String generateScoreboard(String sql) {
