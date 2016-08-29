@@ -53,16 +53,16 @@ public class DBHandler {
 
     public static List<String> getPlayers(int daysBackHistory) {
         String sql = "SELECT DISTINCT(player_red_1) FROM `tbl_fights` \n" +
-                "where (DATEDIFF(NOW(), `timestamp`) < 9999)\n" +
+                "where (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")\n" +
                 "UNION\n" +
                 "SELECT DISTINCT(player_red_2) FROM `tbl_fights` \n" +
-                "where (DATEDIFF(NOW(), `timestamp`) < 9999)\n" +
+                "where (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")\n" +
                 "UNION\n" +
                 "SELECT DISTINCT(player_blue_1) FROM `tbl_fights` \n" +
-                "where (DATEDIFF(NOW(), `timestamp`) < 9999)\n" +
+                "where (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")\n" +
                 "UNION\n" +
                 "SELECT DISTINCT(player_blue_2) FROM `tbl_fights` \n" +
-                "where (DATEDIFF(NOW(), `timestamp`) < 9999)";
+                "where (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")";
         List<List<String>> genericSelect = genericSelect(sql);
 
         List<String> players = new ArrayList<>();
@@ -79,10 +79,10 @@ public class DBHandler {
 
     public static int getGamesPlayed(String playerName, int daysBackHistory) {
         String sql = "SELECT count(*) FROM `tbl_fights` \n" +
-                "WHERE player_red_1 = '" + playerName + "'\n" +
+                "WHERE (player_red_1 = '" + playerName + "'\n" +
                 "or player_red_2 = '" + playerName + "'\n" +
                 "or player_blue_1 = '" + playerName + "'\n" +
-                "or player_blue_2 = '" + playerName + "'\n" +
+                "or player_blue_2 = '" + playerName + "')\n" +
                 "and (DATEDIFF(NOW(), `timestamp`) < " + daysBackHistory + ")";
         String gamesPlayed = genericSelect(sql).get(0).get(0);
         if (gamesPlayed == null) {

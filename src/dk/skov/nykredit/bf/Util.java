@@ -3,6 +3,7 @@ package dk.skov.nykredit.bf;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by aogj on 10-07-15.
@@ -120,6 +121,31 @@ public class Util {
         }
     }
 
+    public static String getTableBGColor(String tableTeam) {
+        if (tableTeam.equalsIgnoreCase("t1r")) {
+            if (Pattern.compile(".*red.*INTENSE!!!!!.*").matcher(t1TeamDiff).find()) {
+                return "bgcolor=\"#ffb3b3\"";
+            }
+        }
+        if (tableTeam.equalsIgnoreCase("t1b")) {
+            if (Pattern.compile(".*blue.*INTENSE!!!!!.*").matcher(t1TeamDiff).find()) {
+                return "bgcolor=\"#b3b3ff\"";
+            }
+        }
+        if (tableTeam.equalsIgnoreCase("t2r")) {
+            if (Pattern.compile(".*red.*INTENSE!!!!!.*").matcher(t2TeamDiff).find()) {
+                return "bgcolor=\"#ffb3b3\"";
+            }
+        }
+        if (tableTeam.equalsIgnoreCase("t2b")) {
+            if (Pattern.compile(".*blue.*INTENSE!!!!!.*").matcher(t2TeamDiff).find()) {
+                return "bgcolor=\"#b3b3ff\"";
+            }
+        }
+
+        return "";
+    }
+
     public static String generateScoreboard(int daysBackHistory) {
         String returnString = "<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n" +
                 "                <tr>\n" +
@@ -133,18 +159,18 @@ public class Util {
         int i = 0;
         //String sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \\\"*SUM*\\\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999)) as sumResult";
         for (List<String> playerList : ScoreBoardGenerator.getScore(daysBackHistory)) {
-
-
-            returnString += "<tr>\n" +
-                    "                    <td style=\"border:1px solid black;\">" + ++i + "\n" +
-                    "                    </td>\n" +
-                    "                    <td style=\"border:1px solid black;\">" + playerList.get(0) + "\n" +
-                    "                    </td>\n" +
-                    "                    <td style=\"border:1px solid black;\">" + playerList.get(1) + "\n" +
-                    "                    </td>\n" +
-                    "                    <td style=\"border:1px solid black;\">" + playerList.get(2) + "\n" +
-                    "                    </td>\n" +
-                    "                </tr>\n";
+            if (!"".equalsIgnoreCase(playerList.get(0))) {
+                returnString += "<tr>\n" +
+                        "                    <td style=\"border:1px solid black;\">" + ++i + "\n" +
+                        "                    </td>\n" +
+                        "                    <td style=\"border:1px solid black;\">" + playerList.get(0) + "\n" +
+                        "                    </td>\n" +
+                        "                    <td style=\"border:1px solid black;\">" + playerList.get(1) + "\n" +
+                        "                    </td>\n" +
+                        "                    <td style=\"border:1px solid black;\">" + playerList.get(2) + "\n" +
+                        "                    </td>\n" +
+                        "                </tr>\n";
+            }
         }
 
         returnString += "</table>";
@@ -152,35 +178,4 @@ public class Util {
         return returnString;
     }
 
-    public static String generateScoreboard(String sql) {
-        String returnString = "<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n" +
-                "                <tr>\n" +
-                "                    <th style=\"border:1px solid black;\">#</th>\n" +
-                "                    <th style=\"border:1px solid black;\">Name</th>\n" +
-                "                    <th style=\"border:1px solid black;\">points</th>\n" +
-                "                    <th style=\"border:1px solid black;\">games played</th>\n" +
-                "                </tr>\n";
-
-
-                int i = 0;
-                //String sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \\\"*SUM*\\\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999)) as sumResult";
-                for (List<String> playerList : DBHandler.genericSelect(sql)) {
-
-
-                    returnString += "<tr>\n" +
-                            "                    <td style=\"border:1px solid black;\">" + ++i + "\n" +
-                            "                    </td>\n" +
-                            "                    <td style=\"border:1px solid black;\">" + playerList.get(0) + "\n" +
-                            "                    </td>\n" +
-                            "                    <td style=\"border:1px solid black;\">" + playerList.get(1) + "\n" +
-                            "                    </td>\n" +
-                            "                    <td style=\"border:1px solid black;\">" + playerList.get(2) + "\n" +
-                            "                    </td>\n" +
-                            "                </tr>\n";
-                }
-
-                returnString += "</table>";
-
-        return returnString;
-    }
 }

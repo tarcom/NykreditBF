@@ -63,11 +63,11 @@
     <audio id="finish" src="sounds/finish.wav" preload="auto" autobuffer/>
     </audio>
 
+    <form action="index.jsp" method="POST">
 
-    <table>
-        <tr>
-            <td>
-                <form action="index.jsp" method="POST">
+        <table cellpadding="5">
+            <tr align="center">
+                <td align="center">
                     <input type="hidden" name="startTimer" value="true">
                     <select name="playtime" class="btn">
                         <option value="5">5 sec</option>
@@ -78,35 +78,32 @@
                         <option value="300">5 min</option>
                     </select>
 
+                    <br>
+
                     <input type="submit" value="Start Timer!" class="btn green large">
+                </td>
+                <td align="center">
+                    <p style="font-size:100px; color: red" ;>
+                        <%
+                            if (request.getParameter("startTimer") != null) {
+                        %>
+                        <span id="time"></span>
+                        <script>
+                            EvalSound('startAudio');
+                        </script>
+                        <%
+                        } else {
+                        %>
+                        00:00
+                        <%
+                            }
+                        %>
+                    </p>
 
-
-
-                </form>
-
-            </td>
-            <td>
-                <p style="font-size:50px; color: red";>
-                    Countdown:
-                    <%
-                        if (request.getParameter("startTimer") != null) {
-                    %>
-                    <span id="time"></span>
-                    <script>
-                        EvalSound('startAudio');
-                    </script>
-                    <%
-                    } else {
-                    %>
-                    00:00
-                    <%
-                        }
-                    %>
-                </p>
-            </td>
-        </tr>
-    </table>
-
+                </td>
+            </tr>
+        </table>
+    </form>
 
 
 </div>

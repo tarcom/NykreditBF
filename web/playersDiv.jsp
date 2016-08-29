@@ -19,7 +19,6 @@
 <table style="border:2px solid black;border-collapse:collapse">
 
     <tr>
-        <th style="border:1px solid black;">#</th>
         <th style="border:1px solid black;"></th>
         <th style="border:1px solid black;">Name</th>
         <th style="border:1px solid black;"></th>
@@ -34,8 +33,6 @@
             String playerReadyGreen = (playerList.get(1).equals("1") ? "bgcolor=\"#7cfc00\"" : "");
     %>
     <tr <%=playerReadyGreen%>>
-        <td style="border:1px solid black;">x</td>
-
         <td style="border:1px solid black;"><input type="checkbox" <%=playerReady%> disabled></td>
 
         <td style="border:1px solid black;"><%=player%></td>

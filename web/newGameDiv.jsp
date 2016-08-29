@@ -32,7 +32,7 @@
             </td>
         </tr>
 
-        <tr>
+        <tr <%=Util.getTableBGColor("t1r")%>>
             <td width="60px">
                 Red team:
             </td>
@@ -49,7 +49,7 @@
             </td>
         </tr>
 
-        <tr>
+        <tr <%=Util.getTableBGColor("t1b")%>>
             <td>
                 Blue team:
             </td>
@@ -81,7 +81,8 @@
                 <b>Table 2 (old table) - teamDiff = <%=Util.t2TeamDiff%></b>
             </td>
         </tr>
-        <tr>
+
+        <tr <%=Util.getTableBGColor("t2r")%>>
             <td>
                 Red team:
             </td>
@@ -97,7 +98,8 @@
                 <input type="submit" name="t2RedWinner" value="Claim red victory on table 2!" class="btn small red alskSize"> <br>
             </td>
         </tr>
-        <tr>
+
+        <tr <%=Util.getTableBGColor("t2b")%>>
             <td>
                 Blue team:
             </td>

@@ -6,22 +6,22 @@
 <%@ page import="java.util.TreeMap" %>
 
 
-<h3>SCOREBOARDS</h3>
+<%--<h3>SCOREBOARDS</h3>--%>
 <table cellpadding="10" frame="1">
     <tr>
-        <td>
+        <td valign="top">
             <h4>Last rolling day</h4>
             <%=Util.generateScoreboard(1)%>
         </td>
-        <td>
+        <td valign="top">
             <h4>Last rolling week</h4>
             <%=Util.generateScoreboard(7)%>
         </td>
-        <td>
+        <td valign="top">
             <h4>Last rolling month</h4>
             <%=Util.generateScoreboard(30)%>
         </td>
-        <td>
+        <td valign="top">
             <h4>All-times</h4>
             <%=Util.generateScoreboard(9999999)%>
         </td>

@@ -6,13 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31bc4928-4d0b-4f9b-b911-a4c17226570f" name="Default" comment="new release of BF 2.0. one bugfix done: wrong text for intense game (thanks selenium), the calculation was correct, but text was wrong. Also: a lot of refactoring, mainly deleted a table that was redundant. Added some new sqls.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/releases/NykreditBF_2.0.war" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/ScoreBoardGenerator.java" />
+    <list default="true" id="31bc4928-4d0b-4f9b-b911-a4c17226570f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/releases/NykreditBF_2.0.war" afterPath="$PROJECT_DIR$/releases/NykreditBF_2.0.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java" afterPath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/dk.skov.nykredit.bf/TestSelenium.java" afterPath="$PROJECT_DIR$/test/dk.skov.nykredit.bf/TestSelenium.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java" afterPath="$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/alsk.css" afterPath="$PROJECT_DIR$/web/alsk.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/countDownDiv.jsp" afterPath="$PROJECT_DIR$/web/countDownDiv.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fightsDiv.jsp" afterPath="$PROJECT_DIR$/web/fightsDiv.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/newGameDiv.jsp" afterPath="$PROJECT_DIR$/web/newGameDiv.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/playersDiv.jsp" afterPath="$PROJECT_DIR$/web/playersDiv.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/topPlayerDiv.jsp" afterPath="$PROJECT_DIR$/web/topPlayerDiv.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -83,8 +85,28 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.3461537" vertical-offset="524" max-vertical-offset="1377">
-              <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+            <state vertical-scroll-proportion="-8.384615" vertical-offset="853" max-vertical-offset="1615">
+              <caret line="63" column="45" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="countDownDiv.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/countDownDiv.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.6923075" vertical-offset="1246" max-vertical-offset="2023">
+              <caret line="82" column="83" selection-start-line="82" selection-start-column="83" selection-end-line="82" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fightsDiv.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/fightsDiv.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-22.0" vertical-offset="40" max-vertical-offset="731">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -93,8 +115,28 @@
       <file leaf-file-name="playersDiv.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/playersDiv.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.730769" vertical-offset="631" max-vertical-offset="1309">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.5" vertical-offset="306" max-vertical-offset="1258">
+              <caret line="31" column="76" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newGameDiv.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/newGameDiv.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.230769" vertical-offset="757" max-vertical-offset="2227">
+              <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alsk.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/alsk.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43881857" vertical-offset="659" max-vertical-offset="2006">
+              <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -103,8 +145,8 @@
       <file leaf-file-name="topPlayerDiv.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="884">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="884">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -113,18 +155,12 @@
       <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="5389">
-              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1394" max-vertical-offset="5287">
+              <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
               <folding>
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1483#1484#0" expanded="true" />
-                <element signature="e#2481#2482#0" expanded="true" />
-                <element signature="e#2539#2540#0" expanded="true" />
-                <element signature="e#3253#3254#0" expanded="true" />
-                <element signature="e#3317#3318#0" expanded="true" />
-                <element signature="e#3603#3604#0" expanded="true" />
-                <element signature="e#3669#3670#0" expanded="true" />
-                <marker date="1472380035596" expanded="true" signature="10743:10884" placeholder="SELECT *\nFR..tbl_fights..." />
+                <element signature="e#3331#3332#0" expanded="true" />
+                <element signature="e#3395#3396#0" expanded="true" />
+                <marker date="1472487411907" expanded="true" signature="10821:10962" placeholder="SELECT *\nFR..tbl_fights..." />
               </folding>
             </state>
           </provider>
@@ -133,18 +169,8 @@
       <file leaf-file-name="ScoreBoardGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/ScoreBoardGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestSelenium.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/dk.skov.nykredit.bf/TestSelenium.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7407407" vertical-offset="2159" max-vertical-offset="3230">
-              <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="901">
+              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -153,28 +179,8 @@
       <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2010" max-vertical-offset="3230">
-              <caret line="134" column="64" selection-start-line="134" selection-start-column="64" selection-end-line="134" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="238">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nykreditbf.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql/nykreditbf.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.36" vertical-offset="2024" max-vertical-offset="2703">
-              <caret line="149" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1955" max-vertical-offset="3128">
+              <caret line="136" column="41" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -206,23 +212,23 @@
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/NewGameModelHelper.java" />
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/WEB-INF/alsk.css" />
-        <option value="$PROJECT_DIR$/web/fightsDiv.jsp" />
-        <option value="$PROJECT_DIR$/web/countDownDiv.jsp" />
-        <option value="$PROJECT_DIR$/web/alsk.css" />
         <option value="$PROJECT_DIR$/documentation/installation.txt" />
         <option value="$PROJECT_DIR$/documentation/todo.txt" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/web/newGameDiv.jsp" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/UpdateModelHandler.java" />
         <option value="$PROJECT_DIR$/test/dk.skov.nykredit.bf/TestSelenium.java" />
-        <option value="$PROJECT_DIR$/web/playersDiv.jsp" />
-        <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java" />
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/ScoreBoardGenerator.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/sql/getNumberOfGamesPlayed.sql" />
         <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java" />
+        <option value="$PROJECT_DIR$/web/playersDiv.jsp" />
+        <option value="$PROJECT_DIR$/web/newGameDiv.jsp" />
+        <option value="$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/fightsDiv.jsp" />
         <option value="$PROJECT_DIR$/web/topPlayerDiv.jsp" />
+        <option value="$PROJECT_DIR$/web/countDownDiv.jsp" />
+        <option value="$PROJECT_DIR$/web/alsk.css" />
       </list>
     </option>
   </component>
@@ -291,6 +297,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -387,9 +394,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NykreditBF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NykreditBF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -429,7 +449,7 @@
     <option name="referencePos" value="0" />
     <option name="showLabels" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.TestSelenium">
+  <component name="RunManager" selected="Tomcat Server.NykreditFB">
     <configuration default="false" name="TestSelenium" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -984,7 +1004,8 @@
       <workItem from="1471284579683" duration="11711000" />
       <workItem from="1471721615034" duration="16627000" />
       <workItem from="1472376558268" duration="1684000" />
-      <workItem from="1472378271831" duration="3326000" />
+      <workItem from="1472378271831" duration="4482000" />
+      <workItem from="1472483304238" duration="10774000" />
     </task>
     <task id="LOCAL-00001" summary="added INTENSE fights + bugfixes">
       <created>1437695755831</created>
@@ -1040,11 +1061,17 @@
       <option name="project" value="LOCAL" />
       <updated>1471295633216</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new release of BF 2.0. one bugfix done: wrong text for intense game (thanks selenium), the calculation was correct, but text was wrong. Also: a lot of refactoring, mainly deleted a table that was redundant. Added some new sqls. All tests parses now.">
+      <created>1472382711685</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1472382711685</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97625000" />
+    <option name="totallyTimeSpent" value="109555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1056,7 +1083,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1071,7 +1098,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42550334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3261745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3261745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1118,51 +1145,21 @@
     <MESSAGE value="install notes updated" />
     <MESSAGE value="added selenium junit test to reproduce strange problem." />
     <MESSAGE value="encoding fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="encoding fix" />
+    <MESSAGE value="new release of BF 2.0. one bugfix done: wrong text for intense game (thanks selenium), the calculation was correct, but text was wrong. Also: a lot of refactoring, mainly deleted a table that was redundant. Added some new sqls. All tests parses now." />
+    <option name="LAST_COMMIT_MESSAGE" value="new release of BF 2.0. one bugfix done: wrong text for intense game (thanks selenium), the calculation was correct, but text was wrong. Also: a lot of refactoring, mainly deleted a table that was redundant. Added some new sqls. All tests parses now." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/dk.skov.nykredit.bf/TestSelenium.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/dk.skov.nykredit.bf/TestSelenium.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/ScoreBoardGenerator.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/ScoreBoardGenerator.java</url>
-          <line>20</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java</url>
-          <line>72</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="16" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="37" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="rs.getString(i)" language="JAVA" custom="" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1178,14 +1175,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="544">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/nykreditbf.sql">
@@ -1197,14 +1194,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="544">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/nykreditbf.sql">
@@ -1235,6 +1232,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1264,6 +1262,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1294,6 +1293,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="134" column="85" selection-start-line="134" selection-start-column="85" selection-end-line="134" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,15 +1310,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
           <folding>
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#2481#2482#0" expanded="true" />
-            <element signature="e#2539#2540#0" expanded="true" />
-            <element signature="e#3253#3254#0" expanded="true" />
-            <element signature="e#3317#3318#0" expanded="true" />
-            <element signature="e#3603#3604#0" expanded="true" />
-            <element signature="e#3669#3670#0" expanded="true" />
-            <marker date="1472380035596" expanded="true" signature="10743:10884" placeholder="SELECT *\nFR..tbl_fights..." />
+            <element signature="e#3331#3332#0" expanded="true" />
+            <element signature="e#3395#3396#0" expanded="true" />
+            <marker date="1472487411907" expanded="true" signature="10821:10962" placeholder="SELECT *\nFR..tbl_fights..." />
           </folding>
         </state>
       </provider>
@@ -1327,6 +1321,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1364,6 +1359,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="31" column="164" selection-start-line="31" selection-start-column="164" selection-end-line="31" selection-end-column="164" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1380,15 +1376,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
           <folding>
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#2481#2482#0" expanded="true" />
-            <element signature="e#2539#2540#0" expanded="true" />
-            <element signature="e#3253#3254#0" expanded="true" />
-            <element signature="e#3317#3318#0" expanded="true" />
-            <element signature="e#3603#3604#0" expanded="true" />
-            <element signature="e#3669#3670#0" expanded="true" />
-            <marker date="1472380035596" expanded="true" signature="10743:10884" placeholder="SELECT *\nFR..tbl_fights..." />
+            <element signature="e#3331#3332#0" expanded="true" />
+            <element signature="e#3395#3396#0" expanded="true" />
+            <marker date="1472487411907" expanded="true" signature="10821:10962" placeholder="SELECT *\nFR..tbl_fights..." />
           </folding>
         </state>
       </provider>
@@ -1397,6 +1387,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1459,27 +1450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/fightsDiv.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="0">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/countDownDiv.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/alsk.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NykreditBF.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1494,85 +1464,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/newGameDiv.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2193">
-          <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3461537" vertical-offset="524" max-vertical-offset="1377">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="238">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2010" max-vertical-offset="3230">
-          <caret line="134" column="64" selection-start-line="134" selection-start-column="64" selection-end-line="134" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/ScoreBoardGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="5389">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-          <folding>
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#2481#2482#0" expanded="true" />
-            <element signature="e#2539#2540#0" expanded="true" />
-            <element signature="e#3253#3254#0" expanded="true" />
-            <element signature="e#3317#3318#0" expanded="true" />
-            <element signature="e#3603#3604#0" expanded="true" />
-            <element signature="e#3669#3670#0" expanded="true" />
-            <marker date="1472380035596" expanded="true" signature="10743:10884" placeholder="SELECT *\nFR..tbl_fights..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="884">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/playersDiv.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.730769" vertical-offset="631" max-vertical-offset="1309">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sql/nykreditbf.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.36" vertical-offset="2024" max-vertical-offset="2703">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2533" max-vertical-offset="2703">
           <caret line="149" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding />
         </state>
@@ -1580,8 +1485,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/dk.skov.nykredit.bf/TestSelenium.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7407407" vertical-offset="2159" max-vertical-offset="3230">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2159" max-vertical-offset="3230">
           <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/dataSources.local.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/ScoreBoardGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="901">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/DBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1394" max-vertical-offset="5287">
+          <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+          <folding>
+            <element signature="e#3331#3332#0" expanded="true" />
+            <element signature="e#3395#3396#0" expanded="true" />
+            <marker date="1472487411907" expanded="true" signature="10821:10962" placeholder="SELECT *\nFR..tbl_fights..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/playersDiv.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="306" max-vertical-offset="1258">
+          <caret line="31" column="76" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/newGameDiv.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.230769" vertical-offset="757" max-vertical-offset="2227">
+          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/skov/nykredit/bf/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1955" max-vertical-offset="3128">
+          <caret line="136" column="41" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.384615" vertical-offset="853" max-vertical-offset="1615">
+          <caret line="63" column="45" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/topPlayerDiv.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="884">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/fightsDiv.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.0" vertical-offset="40" max-vertical-offset="731">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/countDownDiv.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.6923075" vertical-offset="1246" max-vertical-offset="2023">
+          <caret line="82" column="83" selection-start-line="82" selection-start-column="83" selection-end-line="82" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/alsk.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43881857" vertical-offset="659" max-vertical-offset="2006">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding />
         </state>
       </provider>

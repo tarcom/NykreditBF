@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BF app</title>
+    <title>BF app 2.0</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">--%>
@@ -34,37 +34,51 @@
 
 </head>
 <body>
-<h2>BF app</h2>
+<h2>BF app 2.0</h2>
 
 <%
     Util.updateModel(request);
 %>
 <div align="center">
-    <table border="1" cellpadding="10">
+
+    <table cellpadding="10">
         <tr align="center">
-            <td align="center" width="400px">
-                <jsp:include page="playersDiv.jsp"/>
+            <td valign="top">
+
+                <table border="1" cellpadding="10">
+                    <tr align="center">
+                        <td align="center" width="400px" rowspan="2">
+                            <jsp:include page="playersDiv.jsp"/>
+                        </td>
+                        <td align="center">
+                            <jsp:include page="newGameDiv.jsp"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <jsp:include page="countDownDiv.jsp"/>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" align="center">
+                    <jsp:include page="topPlayerDiv.jsp"/>
+                    </td>
+                    </tr>
+                    <%--<tr>--%>
+                    <%--<td colspan="2" align="center">--%>
+                    <%--<jsp:include page="fightsDiv.jsp"/>--%>
+                    <%--</td>--%>
+                    <%--</tr>--%>
+                </table>
             </td>
-            <td align="center">
-                <jsp:include page="newGameDiv.jsp"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <jsp:include page="countDownDiv.jsp"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <jsp:include page="topPlayerDiv.jsp"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
+
+
+            <td valign="top">
                 <jsp:include page="fightsDiv.jsp"/>
             </td>
         </tr>
     </table>
+
 </div>
 
 <br>
