@@ -26,5 +26,8 @@
         <module name="NykreditBF" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="NykreditBF" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
