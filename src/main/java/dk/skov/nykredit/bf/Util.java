@@ -1,8 +1,10 @@
 package dk.skov.nykredit.bf;
 
+import dk.skov.nykredit.bf.Model.Score;
+import dk.skov.nykredit.bf.Model.TotalScore;
+
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -34,6 +36,8 @@ public class Util {
     public static int t2r2;
     public static int t2b1;
     public static int t2b2;
+
+    private static ScoreBoardGenerator scoreBoardGenerator = new ScoreBoardGenerator();
 
     public static void updateModel(HttpServletRequest request){
 
@@ -146,36 +150,46 @@ public class Util {
         return "";
     }
 
-    public static String generateScoreboard(int daysBackHistory) {
-        String returnString = "<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n" +
-                "                <tr>\n" +
-                "                    <th style=\"border:1px solid black;\">#</th>\n" +
-                "                    <th style=\"border:1px solid black;\">Name</th>\n" +
-                "                    <th style=\"border:1px solid black;\">points</th>\n" +
-                "                    <th style=\"border:1px solid black;\">games played</th>\n" +
-                "                </tr>\n";
+    public static String generateScoreboard() {
+        List<TotalScore> allScores = scoreBoardGenerator.getAllScores();
+        StringBuffer result = new StringBuffer();
 
+        for (TotalScore allScore : allScores) {
+            result.append("<td valign=\"top\">");
+            result.append("<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n");
 
-        int i = 0;
-        //String sql = "select * from (SELECT name, sum(points), count(*) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999) group by name order by sum(points) desc) as mainResult UNION ALL select * from (SELECT \\\"*SUM*\\\", sum(points), FLOOR(count(*)/4) FROM `tbl_points` WHERE (DATEDIFF(NOW(), `timestamp`) < 99999)) as sumResult";
-        for (List<String> playerList : ScoreBoardGenerator.getScore(daysBackHistory)) {
-            if (!"".equalsIgnoreCase(playerList.get(0))) {
-                returnString += "<tr>\n" +
-                        "                    <td style=\"border:1px solid black;\">" + ++i + "\n" +
-                        "                    </td>\n" +
-                        "                    <td style=\"border:1px solid black;\">" + playerList.get(0) + "\n" +
-                        "                    </td>\n" +
-                        "                    <td style=\"border:1px solid black;\">" + playerList.get(1) + "\n" +
-                        "                    </td>\n" +
-                        "                    <td style=\"border:1px solid black;\">" + playerList.get(2) + "\n" +
-                        "                    </td>\n" +
-                        "                </tr>\n";
+            //Header
+            result.append("                <tr>\n").
+                    append("                    <th style=\"border:1px solid black;\">#</th>\n").
+                    append("                    <th style=\"border:1px solid black;\">Name</th>\n").
+                    append("                    <th style=\"border:1px solid black;\">points</th>\n").
+                    append("                    <th style=\"border:1px solid black;\">games played</th>\n").
+                    append("                </tr>\n");
+
+            int i = 0;
+            List<Score> values = new LinkedList<>(allScore.getAllScores().values());
+            Collections.sort(values);
+            for (Score score : values) {
+                result.append("<tr>\n").
+                        append("                    <td style=\"border:1px solid black;\">").
+                        append(++i).append("\n").append("                    </td>\n").
+                        append("                    <td style=\"border:1px solid black;\">").
+                        append(score.getPlayer().getName()).append("\n").
+                        append("                    </td>\n").
+                        append("                    <td style=\"border:1px solid black;\">").
+                        append(score.getScore()).append("\n").
+                        append("                    </td>\n").
+                        append("                    <td style=\"border:1px solid black;\">").
+                        append(score.getGamesPlayed()).append("\n").
+                        append("                    </td>\n").
+                        append("</tr>\n");
             }
+
+            result.append("</table>");
+            result.append("</td>");
         }
 
-        returnString += "</table>";
-
-        return returnString;
+        return result.toString();
     }
 
 }
