@@ -37,7 +37,7 @@ public class Util {
     public static int t2b1;
     public static int t2b2;
 
-    private static ScoreBoardGenerator scoreBoardGenerator = new ScoreBoardGenerator();
+    private static ScoreBoardGenerator scoreBoardGenerator = ScoreBoardGenerator.getSingleton();
 
     public static void updateModel(HttpServletRequest request){
 

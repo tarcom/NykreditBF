@@ -17,6 +17,8 @@ public class ScoreBoardGenerator {
     private List<TotalScore> allScores = new LinkedList<>();
     private TotalScore allTimeScore;
 
+    private static final ScoreBoardGenerator singleton = new ScoreBoardGenerator();
+
     public List<Game> getAllGames() {
         return allGames;
     }
@@ -27,6 +29,10 @@ public class ScoreBoardGenerator {
 
     public List<TotalScore> getAllScores() {
         return allScores;
+    }
+
+    public static ScoreBoardGenerator getSingleton() {
+        return singleton;
     }
 
     public ScoreBoardGenerator() {
