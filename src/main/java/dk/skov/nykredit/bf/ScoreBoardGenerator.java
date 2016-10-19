@@ -36,10 +36,12 @@ public class ScoreBoardGenerator {
     }
 
     public ScoreBoardGenerator() {
+        refreshAll();
+    }
 
-        initPlayers();
+    public void refreshAll() {
+        refreshPlayers();
         allGames = SimpleDBHandler.getAllGames(allPlayers);
-        initPlayers();
         List<Date> defaultDates = new LinkedList<>();
 
         Calendar calendar = GregorianCalendar.getInstance();
@@ -60,10 +62,11 @@ public class ScoreBoardGenerator {
 
         allTimeScore = new TotalScore(calendar.getTime());
 
-        initScore(defaultDates);
+        refreshScore(defaultDates);
     }
 
-    public void initPlayers() {
+    public void refreshPlayers() {
+        allPlayers = new HashMap<>();
         List<Player> players = SimpleDBHandler.getAllPlayers();
 
         for (Player player : players) {
@@ -71,17 +74,18 @@ public class ScoreBoardGenerator {
         }
     }
 
-    public void initScore(List<Date> beforeDates) {
+    public void refreshScore(List<Date> beforeDates) {
+        allScores = new LinkedList<>();
         for (Date beforeDate : beforeDates) {
             allScores.add(new TotalScore(beforeDate));
         }
 
         for (Game game : allGames) {
-            initGame(game);
+            updateGame(game);
         }
     }
 
-    public void initGame(Game game) {
+    public void updateGame(Game game) {
         for (TotalScore allScore : allScores) {
             if (game.getTimestamp().after(allScore.getFromDate())) {
                 updateTotalScore(game, allScore);
@@ -134,10 +138,4 @@ public class ScoreBoardGenerator {
 
         return blueSum - redSum;
     }
-
-    public void addOneGame(Game game) {
-        initGame(game);
-        allGames.add(game);
-    }
-
 }
