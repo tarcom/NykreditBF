@@ -11,42 +11,19 @@ import java.util.regex.Pattern;
 
 /**
  * Created by aogj on 10-07-15.
- *
+ * <p>
  * prettymuch only used by newGameDiv.jsp
- *
+ * <p>
  * We need to make sure the playersReadyListList is updated before presenting any data.
  */
 public class Util {
-
-    public static int INTENSE_LEVEL = 5;
-
-    public static List<List<String>> playersReadyListList = new ArrayList<>();
-
-
-    public static String t1Intense;
-    public static String t1TeamDiff;
-
-    public static String t2Intense;
-    public static String t2TeamDiff;
-
-    public static int t1r1;
-    public static int t1r2;
-    public static int t1b1;
-    public static int t1b2;
-
-    public static int t2r1;
-    public static int t2r2;
-    public static int t2b1;
-    public static int t2b2;
 
     public static Game tableOne;
     public static Game tableTwo;
 
     private static ScoreBoardGenerator scoreBoardGenerator = ScoreBoardGenerator.getSingleton();
 
-    public static void updateModel(HttpServletRequest request){
-
-
+    public static void updateModel(HttpServletRequest request) {
         if (request.getParameter("newGame") != null) {
             LinkedList<Player> players = new LinkedList<>(scoreBoardGenerator.getAllPlayers().values());
             Collections.sort(players);
@@ -96,52 +73,6 @@ public class Util {
             SimpleDBHandler.addGame(tableTwo);
             scoreBoardGenerator.refreshAll();
         }
-
-
-        //-----------
-
-
-//        //table 1
-//        t1r1 = DBHandler.getTablePlayerPoints(0);
-//        t1r2 = DBHandler.getTablePlayerPoints(2);
-//        t1b1 = DBHandler.getTablePlayerPoints(1);
-//        t1b2 = DBHandler.getTablePlayerPoints(3);
-//        int t1TeamDiffInt = (t1r1 + t1r2) - (t1b1 + t1b2);
-//        t1TeamDiff = String.valueOf(t1TeamDiffInt).replaceAll("-", "");
-//
-//        String intenseStrRed = " <font color=red>INTENSE!!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning red team takes 2 points!</font>";
-//        String intenseStrBlue = " <font color=blue>INTENSE!!!!! " + Util.INTENSE_LEVEL + " points diff exceeded!!!!! Winning blue team takes 2 points!</font>";
-//        t1Intense = "";
-//        if (t1TeamDiffInt >= Util.INTENSE_LEVEL) {
-//            t1TeamDiff += intenseStrBlue;
-//            t1Intense = "t1b";
-//        } else if (t1TeamDiffInt <= Util.INTENSE_LEVEL * -1) {
-//            t1TeamDiff += intenseStrRed;
-//            t1Intense = "t1r";
-//        }
-//
-//
-//        //table 2
-//        t2r1 = DBHandler.getTablePlayerPoints(4);
-//        t2r2 = DBHandler.getTablePlayerPoints(6);
-//        t2b1 = DBHandler.getTablePlayerPoints(5);
-//        t2b2 = DBHandler.getTablePlayerPoints(7);
-//        int t2TeamDiffInt = (t2r1 + t2r2) - (t2b1 + t2b2);
-//        t2TeamDiff = String.valueOf(t2TeamDiffInt).replaceAll("-", "");
-//
-//        t2Intense = "";
-//        if (t2TeamDiffInt >= Util.INTENSE_LEVEL) {
-//            t2TeamDiff += intenseStrBlue;
-//            t2Intense = "t2b";
-//        } else if (t2TeamDiffInt <= Util.INTENSE_LEVEL * -1) {
-//            t2TeamDiff += intenseStrRed;
-//            t2Intense = "t2r";
-//        }
-    }
-
-    //TODO
-    public static String getTableBGColor(String tableTeam) {
-        return "";
     }
 
     public static String generateScoreboard() {
@@ -184,6 +115,22 @@ public class Util {
         }
 
         return result.toString();
+    }
+
+    public static int getBlueSumTableOne() {
+        return scoreBoardGenerator.getBlueSum(tableOne);
+    }
+
+    public static int getRedSumTableOne() {
+        return scoreBoardGenerator.getRedSum(tableOne);
+    }
+
+    public static int getBlueSumTableTwo() {
+        return scoreBoardGenerator.getBlueSum(tableTwo);
+    }
+
+    public static int getRedSumTableTwo() {
+        return scoreBoardGenerator.getRedSum(tableTwo);
     }
 
 }

@@ -12,6 +12,12 @@ import java.util.*;
  */
 public class ScoreBoardGenerator {
 
+    public static int INTENSE_LEVEL = 5;
+
+    public enum RedDog {
+        TOPDOG, UNDERDOG, NODOG
+    }
+
     private List<Game> allGames = new LinkedList<>();
     private Map<String, Player> allPlayers = new HashMap<>();
     private List<TotalScore> allScores = new LinkedList<>();
@@ -95,36 +101,55 @@ public class ScoreBoardGenerator {
     }
 
     private void updateTotalScore(Game game, TotalScore allScore) {
-        int blueAheadPoints = getBlueAheadPoints(game);
+        allScore.addOneGame(game.getPlayer_red_1(), getPointsDifference(game, game.isRedWinner(), true), game.getTimestamp());
+        allScore.addOneGame(game.getPlayer_red_2(), getPointsDifference(game, game.isRedWinner(), true), game.getTimestamp());
+        allScore.addOneGame(game.getPlayer_blue_1(), getPointsDifference(game, game.isRedWinner(), false), game.getTimestamp());
+        allScore.addOneGame(game.getPlayer_blue_2(), getPointsDifference(game, game.isRedWinner(), false), game.getTimestamp());
+    }
 
-        if (blueAheadPoints <= -5) {
-            allScore.addOneGame(game.getPlayer_red_1(), game.isRedWinner() ? 1 : -2, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_red_2(), game.isRedWinner() ? 1 : -2, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_blue_1(), game.isRedWinner() ? -1 : 2, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_blue_2(), game.isRedWinner() ? -1 : 2, game.getTimestamp());
-        } else if (blueAheadPoints >= 5) {
-            allScore.addOneGame(game.getPlayer_red_1(), game.isRedWinner() ? 2 : -1, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_red_2(), game.isRedWinner() ? 2 : -1, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_blue_1(), game.isRedWinner() ? -2 : 1, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_blue_2(), game.isRedWinner() ? -2 : 1, game.getTimestamp());
+    public int getPointsDifference(Game game, boolean redWins, boolean knowRedPlayersPointsDifference) {
+        RedDog redDog = getRedDog(game);
+
+        if (redDog == RedDog.TOPDOG) {
+            if (redWins && knowRedPlayersPointsDifference) return 1;
+            if (redWins && !knowRedPlayersPointsDifference) return -1;
+            if (!redWins && knowRedPlayersPointsDifference) return -2;
+            else return 2; //(!redWins && !knowRedPlayersPointsDifference)
+        } else if (redDog == RedDog.UNDERDOG) {
+            if (redWins && knowRedPlayersPointsDifference) return 2;
+            if (redWins && !knowRedPlayersPointsDifference) return -2;
+            if (!redWins && knowRedPlayersPointsDifference) return -1;
+            else return 1; //(!redWins && !knowRedPlayersPointsDifference)
         } else {
-            allScore.addOneGame(game.getPlayer_red_1(), game.isRedWinner() ? 1 : -1, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_red_2(), game.isRedWinner() ? 1 : -1, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_blue_1(), game.isRedWinner() ? -1 : 1, game.getTimestamp());
-            allScore.addOneGame(game.getPlayer_blue_2(), game.isRedWinner() ? -1 : 1, game.getTimestamp());
+            if (redWins && knowRedPlayersPointsDifference) return 1;
+            if (redWins && !knowRedPlayersPointsDifference) return -1;
+            if (!redWins && knowRedPlayersPointsDifference) return -1;
+            else return 1; //(!redWins && !knowRedPlayersPointsDifference)
         }
     }
 
-    private int getBlueAheadPoints(Game game) {
-        int redSum = 0;
-        Score score = allTimeScore.getAllScores().get(game.getPlayer_red_1());
-        if (score != null) {
-            redSum += score.getScore();
+
+    public RedDog getRedDog(Game game) {
+        int blueAheadPoints = getBlueAheadPoints(game);
+
+        if (blueAheadPoints <= -INTENSE_LEVEL) {
+            return RedDog.TOPDOG;
+        } else if (blueAheadPoints >= INTENSE_LEVEL) {
+            return RedDog.UNDERDOG;
+        } else {
+            return RedDog.NODOG;
         }
-        score = allTimeScore.getAllScores().get(game.getPlayer_red_2());
-        if (score != null) {
-            redSum += score.getScore();
-        }
+
+    }
+
+    public int getBlueAheadPoints(Game game) {
+        int redSum = getRedSum(game);
+        int blueSum = getBlueSum(game);
+        return blueSum - redSum;
+    }
+
+    public int getBlueSum(Game game) {
+        Score score;
 
         int blueSum = 0;
         score = allTimeScore.getAllScores().get(game.getPlayer_blue_1());
@@ -135,7 +160,20 @@ public class ScoreBoardGenerator {
         if (score != null) {
             blueSum += score.getScore();
         }
-
-        return blueSum - redSum;
+        return blueSum;
     }
+
+    public int getRedSum(Game game) {
+        int redSum = 0;
+        Score score = allTimeScore.getAllScores().get(game.getPlayer_red_1());
+        if (score != null) {
+            redSum += score.getScore();
+        }
+        score = allTimeScore.getAllScores().get(game.getPlayer_red_2());
+        if (score != null) {
+            redSum += score.getScore();
+        }
+        return redSum;
+    }
+
 }
