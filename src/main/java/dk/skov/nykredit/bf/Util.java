@@ -6,6 +6,7 @@ import dk.skov.nykredit.bf.Model.Score;
 import dk.skov.nykredit.bf.Model.TotalScore;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -52,26 +53,30 @@ public class Util {
 
         if (request.getParameter("t1BlueWinner") != null) {
             tableOne.setRedWinner(false);
+            tableOne.setTimestamp(GregorianCalendar.getInstance().getTime());
             SimpleDBHandler.addGame(tableOne);
-            scoreBoardGenerator.refreshAll();
+            scoreBoardGenerator.updateGame(tableOne, true);
         }
 
         if (request.getParameter("t1RedWinner") != null) {
             tableOne.setRedWinner(true);
+            tableOne.setTimestamp(GregorianCalendar.getInstance().getTime());
             SimpleDBHandler.addGame(tableOne);
-            scoreBoardGenerator.refreshAll();
+            scoreBoardGenerator.updateGame(tableOne, true);
         }
 
         if (request.getParameter("t2BlueWinner") != null) {
             tableTwo.setRedWinner(false);
+            tableTwo.setTimestamp(GregorianCalendar.getInstance().getTime());
             SimpleDBHandler.addGame(tableTwo);
-            scoreBoardGenerator.refreshAll();
+            scoreBoardGenerator.updateGame(tableTwo, true);
         }
 
         if (request.getParameter("t2RedWinner") != null) {
             tableTwo.setRedWinner(true);
+            tableTwo.setTimestamp(GregorianCalendar.getInstance().getTime());
             SimpleDBHandler.addGame(tableTwo);
-            scoreBoardGenerator.refreshAll();
+            scoreBoardGenerator.updateGame(tableTwo, true);
         }
     }
 

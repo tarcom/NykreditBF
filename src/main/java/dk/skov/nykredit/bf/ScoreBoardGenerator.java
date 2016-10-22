@@ -92,12 +92,19 @@ public class ScoreBoardGenerator {
     }
 
     public void updateGame(Game game) {
+        updateGame(game, false);
+    }
+
+    public void updateGame(Game game, boolean updateAllGames) {
         for (TotalScore allScore : allScores) {
             if (game.getTimestamp().after(allScore.getFromDate())) {
                 updateTotalScore(game, allScore);
             }
         }
         updateTotalScore(game, allTimeScore);
+
+        if (updateAllGames)
+            allGames.add(0, game);
     }
 
     private void updateTotalScore(Game game, TotalScore allScore) {
