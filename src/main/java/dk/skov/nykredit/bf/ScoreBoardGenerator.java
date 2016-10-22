@@ -1,5 +1,10 @@
 package dk.skov.nykredit.bf;
 
+import dk.skov.nykredit.bf.Model.Game;
+import dk.skov.nykredit.bf.Model.Player;
+import dk.skov.nykredit.bf.Model.Score;
+import dk.skov.nykredit.bf.Model.TotalScore;
+
 import java.util.*;
 
 /**
@@ -7,43 +12,168 @@ import java.util.*;
  */
 public class ScoreBoardGenerator {
 
-    public static ArrayList<ArrayList<String>> getScore() {
-        return getScore(999999999);
+    public static int INTENSE_LEVEL = 5;
+
+    public enum RedDog {
+        TOPDOG, UNDERDOG, NODOG
     }
 
-    public static ArrayList<ArrayList<String>> getScore(int daysBackHistory) {
+    private List<Game> allGames = new LinkedList<>();
+    private Map<String, Player> allPlayers = new HashMap<>();
+    private List<TotalScore> allScores = new LinkedList<>();
+    private TotalScore allTimeScore;
 
-        TreeMap<Double, ArrayList<String>> resMap = new TreeMap<>();
+    private static final ScoreBoardGenerator singleton = new ScoreBoardGenerator();
 
-        Random random = new Random();
-
-        List<String> players = DBHandler.getPlayers(daysBackHistory);
-        for (String player : players) {
-            int pointsInt = DBHandler.getTablePlayerPoints(player, daysBackHistory);
-            int gamesPlayed = DBHandler.getGamesPlayed(player, daysBackHistory);
-            ArrayList<String> info = new ArrayList<>();
-            info.add(player);
-            info.add(String.valueOf(pointsInt));
-            info.add(String.valueOf(gamesPlayed));
-            double d = random.nextDouble();
-            double pointsD = pointsInt + d;
-            resMap.put(pointsD, info);
-        }
-
-        ArrayList<ArrayList<String>> resList = new ArrayList<ArrayList<String>>();
-
-        for (double d : resMap.keySet()) {
-            ArrayList<String> s = resMap.get(d);
-            resList.add(s);
-        }
-
-        Collections.reverse(resList);
-        return resList;
+    public List<Game> getAllGames() {
+        return allGames;
     }
 
-    public static void main(String[] args) {
-        ArrayList<ArrayList<String>> score = getScore();
-        System.out.println(score);
+    public Map<String, Player> getAllPlayers() {
+        return allPlayers;
+    }
+
+    public List<TotalScore> getAllScores() {
+        return allScores;
+    }
+
+    public static ScoreBoardGenerator getSingleton() {
+        return singleton;
+    }
+
+    public ScoreBoardGenerator() {
+        refreshAll();
+    }
+
+    public void refreshAll() {
+        refreshPlayers();
+        allGames = SimpleDBHandler.getAllGames(allPlayers);
+        List<Date> defaultDates = new LinkedList<>();
+
+        Calendar calendar = GregorianCalendar.getInstance();
+        calendar.add(Calendar.DATE, -1);
+        defaultDates.add(calendar.getTime());
+
+        calendar = GregorianCalendar.getInstance();
+        calendar.add(Calendar.DATE, -7);
+        defaultDates.add(calendar.getTime());
+
+        calendar = GregorianCalendar.getInstance();
+        calendar.add(Calendar.MONTH, -1);
+        defaultDates.add(calendar.getTime());
+
+        calendar = GregorianCalendar.getInstance();
+        calendar.setTimeInMillis(0);
+        defaultDates.add(calendar.getTime());
+
+        allTimeScore = new TotalScore(calendar.getTime());
+
+        refreshScore(defaultDates);
+    }
+
+    public void refreshPlayers() {
+        allPlayers = new HashMap<>();
+        List<Player> players = SimpleDBHandler.getAllPlayers();
+
+        for (Player player : players) {
+            allPlayers.putIfAbsent(player.getName(), player);
+        }
+    }
+
+    public void refreshScore(List<Date> beforeDates) {
+        allScores = new LinkedList<>();
+        for (Date beforeDate : beforeDates) {
+            allScores.add(new TotalScore(beforeDate));
+        }
+
+        for (Game game : allGames) {
+            updateGame(game);
+        }
+    }
+
+    public void updateGame(Game game) {
+        for (TotalScore allScore : allScores) {
+            if (game.getTimestamp().after(allScore.getFromDate())) {
+                updateTotalScore(game, allScore);
+            }
+        }
+        updateTotalScore(game, allTimeScore);
+    }
+
+    private void updateTotalScore(Game game, TotalScore allScore) {
+        allScore.addOneGame(game.getPlayer_red_1(), getPointsDifference(game, game.isRedWinner(), true), game.getTimestamp());
+        allScore.addOneGame(game.getPlayer_red_2(), getPointsDifference(game, game.isRedWinner(), true), game.getTimestamp());
+        allScore.addOneGame(game.getPlayer_blue_1(), getPointsDifference(game, game.isRedWinner(), false), game.getTimestamp());
+        allScore.addOneGame(game.getPlayer_blue_2(), getPointsDifference(game, game.isRedWinner(), false), game.getTimestamp());
+    }
+
+    public int getPointsDifference(Game game, boolean redWins, boolean knowRedPlayersPointsDifference) {
+        RedDog redDog = getRedDog(game);
+
+        if (redDog == RedDog.TOPDOG) {
+            if (redWins && knowRedPlayersPointsDifference) return 1;
+            if (redWins && !knowRedPlayersPointsDifference) return -1;
+            if (!redWins && knowRedPlayersPointsDifference) return -2;
+            else return 2; //(!redWins && !knowRedPlayersPointsDifference)
+        } else if (redDog == RedDog.UNDERDOG) {
+            if (redWins && knowRedPlayersPointsDifference) return 2;
+            if (redWins && !knowRedPlayersPointsDifference) return -2;
+            if (!redWins && knowRedPlayersPointsDifference) return -1;
+            else return 1; //(!redWins && !knowRedPlayersPointsDifference)
+        } else {
+            if (redWins && knowRedPlayersPointsDifference) return 1;
+            if (redWins && !knowRedPlayersPointsDifference) return -1;
+            if (!redWins && knowRedPlayersPointsDifference) return -1;
+            else return 1; //(!redWins && !knowRedPlayersPointsDifference)
+        }
+    }
+
+
+    public RedDog getRedDog(Game game) {
+        int blueAheadPoints = getBlueAheadPoints(game);
+
+        if (blueAheadPoints <= -INTENSE_LEVEL) {
+            return RedDog.TOPDOG;
+        } else if (blueAheadPoints >= INTENSE_LEVEL) {
+            return RedDog.UNDERDOG;
+        } else {
+            return RedDog.NODOG;
+        }
+
+    }
+
+    public int getBlueAheadPoints(Game game) {
+        int redSum = getRedSum(game);
+        int blueSum = getBlueSum(game);
+        return blueSum - redSum;
+    }
+
+    public int getBlueSum(Game game) {
+        Score score;
+
+        int blueSum = 0;
+        score = allTimeScore.getAllScores().get(game.getPlayer_blue_1());
+        if (score != null) {
+            blueSum += score.getScore();
+        }
+        score = allTimeScore.getAllScores().get(game.getPlayer_blue_2());
+        if (score != null) {
+            blueSum += score.getScore();
+        }
+        return blueSum;
+    }
+
+    public int getRedSum(Game game) {
+        int redSum = 0;
+        Score score = allTimeScore.getAllScores().get(game.getPlayer_red_1());
+        if (score != null) {
+            redSum += score.getScore();
+        }
+        score = allTimeScore.getAllScores().get(game.getPlayer_red_2());
+        if (score != null) {
+            redSum += score.getScore();
+        }
+        return redSum;
     }
 
 }
