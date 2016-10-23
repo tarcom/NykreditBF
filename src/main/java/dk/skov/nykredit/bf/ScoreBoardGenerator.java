@@ -107,6 +107,14 @@ public class ScoreBoardGenerator {
             allGames.add(0, game);
     }
 
+    public void switchReadyPlayer(String name) {
+        allPlayers.get(name).setReady(!allPlayers.get(name).isReady());
+    }
+
+    public void addPlayer(String name) {
+        allPlayers.put(name, new Player(name, true));
+    }
+
     private void updateTotalScore(Game game, TotalScore allScore) {
         allScore.addOneGame(game.getPlayer_red_1(), getPointsDifference(game, game.isRedWinner(), true), game.getTimestamp());
         allScore.addOneGame(game.getPlayer_red_2(), getPointsDifference(game, game.isRedWinner(), true), game.getTimestamp());

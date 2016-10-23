@@ -6,9 +6,7 @@ import dk.skov.nykredit.bf.Model.Score;
 import dk.skov.nykredit.bf.Model.TotalScore;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
 import java.util.*;
-import java.util.regex.Pattern;
 
 /**
  * Created by aogj on 10-07-15.

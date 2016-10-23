@@ -6,12 +6,12 @@
 <%
     if (request.getParameter("addPlayer") != null && request.getParameter("addPlayer").length() > 1) {
         SimpleDBHandler.addPlayer(request.getParameter("addPlayer"));
-        ScoreBoardGenerator.getSingleton().refreshAll();
+        ScoreBoardGenerator.getSingleton().addPlayer(request.getParameter("addPlayer"));
     }
 
     if (request.getParameter("PlayerReady") != null && request.getParameter("PlayerReady").length() > 1) {
         SimpleDBHandler.switchPlayerReady(request.getParameter("PlayerReady"));
-        ScoreBoardGenerator.getSingleton().refreshAll();
+        ScoreBoardGenerator.getSingleton().switchReadyPlayer(request.getParameter("PlayerReady"));
     }
 %>
 
