@@ -1,4 +1,3 @@
-<%@ page import="dk.skov.nykredit.bf.DBHandler" %>
 <%@ page import="java.util.List" %>
 <%@ page import="dk.skov.nykredit.bf.Util" %>
 <%--
