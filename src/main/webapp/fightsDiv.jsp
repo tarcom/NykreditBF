@@ -1,8 +1,9 @@
 <%@ page import="java.util.List" %>
-<%@ page import="dk.skov.nykredit.bf.DBHandler" %>
+<%@ page import="dk.skov.nykredit.bf.ScoreBoardGenerator" %>
+<%@ page import="dk.skov.nykredit.bf.Model.Game" %>
 
 
-<h4>Latest 30 fights</h4>
+<h4>All fights</h4>
 <table style="border:2px solid black;border-collapse:collapse">
     <tr>
         <th style="border:1px solid black;">#</th>
@@ -12,23 +13,39 @@
         <th style="border:1px solid black;">Blue1</th>
         <th style="border:1px solid black;">Blue2</th>
         <th style="border:1px solid black;">Match winner</th>
-        <th style="border:1px solid black;">Points at stake</th>
-        <th style="border:1px solid black;">Table</th>
     </tr>
     <%
-        String sql = "select * from tbl_fights order by id desc limit 30";
-        for (List<String> playerList : DBHandler.genericSelect(sql)) {
+        for (Game game : ScoreBoardGenerator.getSingleton().getAllGames()) {
     %>
     <tr>
-        <td style="border:1px solid black;"><%=playerList.get(0)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(5).substring(0, playerList.get(5).length()-2)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(1)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(2)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(3)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(4)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(6)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(7)%></td>
-        <td style="border:1px solid black;"><%=playerList.get(8)%></td>
+        <td style="border:1px solid black;"><%=game.getId()%></td>
+        <td style="border:1px solid black;"><%=game.getTimestamp()%></td>
+
+        <% if (game.getPlayer_red_1() != null) { %>
+        <td style="border:1px solid black;"><%=game.getPlayer_red_1().getName() %></td>
+        <%  } else { %>
+        <td style="border:1px solid black;"></td>
+        <%  } %>
+
+        <% if (game.getPlayer_red_2() != null) { %>
+        <td style="border:1px solid black;"><%=game.getPlayer_red_2().getName() %></td>
+        <%  } else { %>
+        <td style="border:1px solid black;"></td>
+        <%  } %>
+
+        <% if (game.getPlayer_blue_1() != null) { %>
+        <td style="border:1px solid black;"><%=game.getPlayer_blue_1().getName() %></td>
+        <%  } else { %>
+        <td style="border:1px solid black;"></td>
+        <%  } %>
+
+        <% if (game.getPlayer_blue_2() != null) { %>
+        <td style="border:1px solid black;"><%=game.getPlayer_blue_2().getName() %></td>
+        <%  } else { %>
+        <td style="border:1px solid black;"></td>
+        <%  } %>
+
+        <td style="border:1px solid black;"><%=game.getWinner()%></td>
     </tr>
     <%
         }
