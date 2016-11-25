@@ -43,7 +43,7 @@ public class Util {
             Random rand = new Random();
             Player[] setup = new Player[8];
             int count = 0;
-            int countMAx = size < 8 ? size : 7;
+            int countMAx = size < 8 ? size : 8;
             while (count < countMAx) {
                 int index = rand.nextInt(countMAx);
                 if (setup[index] == null) {
