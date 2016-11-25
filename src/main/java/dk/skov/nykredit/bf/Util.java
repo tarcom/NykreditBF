@@ -39,17 +39,25 @@ public class Util {
             }
 
             int size = choosenPlayers.size();
-            for (int i = size; i < 8; i++) {
-                choosenPlayers.add(null);
+
+            Random rand = new Random();
+            Player[] setup = new Player[8];
+            int count = 0;
+            int countMAx = size < 8 ? size : 7;
+            while (count < countMAx) {
+                int index = rand.nextInt(countMAx);
+                if (setup[index] == null) {
+                    setup[index] = choosenPlayers.get(count);
+                    count++;
+                }
             }
 
-            if (size > 4) {
-                tableOne = new Game(choosenPlayers.get(0), choosenPlayers.get(2), choosenPlayers.get(4), choosenPlayers.get(6));
-                tableTwo = new Game(choosenPlayers.get(1), choosenPlayers.get(3), choosenPlayers.get(5), choosenPlayers.get(7));
-            } else {
-                tableOne = new Game(choosenPlayers.get(0), choosenPlayers.get(1), choosenPlayers.get(2), choosenPlayers.get(3));
-                tableTwo = new Game(choosenPlayers.get(4), choosenPlayers.get(5), choosenPlayers.get(6), choosenPlayers.get(7));
+            for (int i = size; i < 8; i++) {
+                setup[i] = null;
             }
+
+            tableOne = new Game(setup[0], setup[1], setup[2], setup[3]);
+            tableTwo = new Game(setup[4], setup[5], setup[6], setup[7]);
         }
 
 
