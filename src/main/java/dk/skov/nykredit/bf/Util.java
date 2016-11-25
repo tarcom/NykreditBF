@@ -38,12 +38,18 @@ public class Util {
                 }
             }
 
-            for (int i = choosenPlayers.size(); i < 8; i++) {
+            int size = choosenPlayers.size();
+            for (int i = size; i < 8; i++) {
                 choosenPlayers.add(null);
             }
 
-            tableOne = new Game(choosenPlayers.get(0), choosenPlayers.get(2), choosenPlayers.get(4), choosenPlayers.get(6));
-            tableTwo = new Game(choosenPlayers.get(1), choosenPlayers.get(3), choosenPlayers.get(5), choosenPlayers.get(7));
+            if (size > 4) {
+                tableOne = new Game(choosenPlayers.get(0), choosenPlayers.get(2), choosenPlayers.get(4), choosenPlayers.get(6));
+                tableTwo = new Game(choosenPlayers.get(1), choosenPlayers.get(3), choosenPlayers.get(5), choosenPlayers.get(7));
+            } else {
+                tableOne = new Game(choosenPlayers.get(0), choosenPlayers.get(1), choosenPlayers.get(2), choosenPlayers.get(3));
+                tableTwo = new Game(choosenPlayers.get(4), choosenPlayers.get(5), choosenPlayers.get(6), choosenPlayers.get(7));
+            }
         }
 
 
