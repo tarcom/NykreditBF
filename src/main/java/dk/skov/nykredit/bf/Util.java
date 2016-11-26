@@ -56,8 +56,8 @@ public class Util {
                 setup[i] = null;
             }
 
-            tableOne = new Game(setup[0], setup[1], setup[2], setup[3]);
-            tableTwo = new Game(setup[4], setup[5], setup[6], setup[7]);
+            tableOne = new Game(setup[0], setup[2], setup[1], setup[3]);
+            tableTwo = new Game(setup[4], setup[6], setup[5], setup[7]);
         }
 
 
