@@ -103,8 +103,9 @@ public class ScoreBoardGenerator {
         }
         updateTotalScore(game, allTimeScore);
 
-        if (updateAllGames)
+        if (updateAllGames) {
             allGames.add(0, game);
+        }
     }
 
     public void switchReadyPlayer(String name) {

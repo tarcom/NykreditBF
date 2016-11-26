@@ -66,30 +66,35 @@ public class Util {
         if (request.getParameter("t1BlueWinner") != null) {
             tableOne.setRedWinner(false);
             tableOne.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableOne);
-            scoreBoardGenerator.updateGame(tableOne, true);
+            updateScores(tableOne);
+            tableOne = new Game(tableOne);
         }
 
         if (request.getParameter("t1RedWinner") != null) {
             tableOne.setRedWinner(true);
             tableOne.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableOne);
-            scoreBoardGenerator.updateGame(tableOne, true);
+            updateScores(tableOne);
+            tableOne = new Game(tableOne);
         }
 
         if (request.getParameter("t2BlueWinner") != null) {
             tableTwo.setRedWinner(false);
             tableTwo.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableTwo);
-            scoreBoardGenerator.updateGame(tableTwo, true);
+            updateScores(tableTwo);
+            tableTwo = new Game(tableTwo);
         }
 
         if (request.getParameter("t2RedWinner") != null) {
             tableTwo.setRedWinner(true);
             tableTwo.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableTwo);
-            scoreBoardGenerator.updateGame(tableTwo, true);
+            updateScores(tableTwo);
+            tableTwo = new Game(tableTwo);
         }
+    }
+
+    private static void updateScores(Game game) {
+        SimpleDBHandler.addGame(game);
+        scoreBoardGenerator.updateGame(game, true);
     }
 
     public static String generateScoreboard() {

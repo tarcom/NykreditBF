@@ -90,6 +90,16 @@ public class Game implements Comparable<Game> {
         this.redWinner = redWinner;
     }
 
+    public Game(Game game) {
+        this.id = game.getId();
+        this.player_red_1 = game.getPlayer_red_1();
+        this.player_red_2 = game.getPlayer_red_2();
+        this.player_blue_1 = game.getPlayer_blue_1();
+        this.player_blue_2 = game.getPlayer_blue_2();
+        this.timestamp = game.getTimestamp();
+        this.redWinner = game.isRedWinner();
+    }
+
     @Override
     public int compareTo(Game o) {
         return this.getTimestamp().compareTo(o.getTimestamp());
@@ -106,8 +116,5 @@ public class Game implements Comparable<Game> {
             return "blue";
         }
     }
-
-
-
 
 }
