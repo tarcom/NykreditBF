@@ -15,7 +15,10 @@
         <th style="border:1px solid black;">Match winner</th>
     </tr>
     <%
+        int count = 0;
         for (Game game : ScoreBoardGenerator.getSingleton().getAllGames()) {
+            count++;
+            if (count > 30) break;
     %>
     <tr>
         <td style="border:1px solid black;"><%=game.getId()%></td>
