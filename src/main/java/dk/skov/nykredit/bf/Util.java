@@ -96,42 +96,49 @@ public class Util {
         List<TotalScore> allScores = scoreBoardGenerator.getAllScores();
         StringBuffer result = new StringBuffer();
 
-        for (TotalScore allScore : allScores) {
-            result.append("<td valign=\"top\">");
-            result.append("<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n");
-
-            //Header
-            result.append("                <tr>\n").
-                    append("                    <th style=\"border:1px solid black;\">#</th>\n").
-                    append("                    <th style=\"border:1px solid black;\">Name</th>\n").
-                    append("                    <th style=\"border:1px solid black;\">points</th>\n").
-                    append("                    <th style=\"border:1px solid black;\">games played</th>\n").
-                    append("                </tr>\n");
-
-            int i = 0;
-            List<Score> values = new LinkedList<>(allScore.getAllScores().values());
-            Collections.sort(values);
-            for (Score score : values) {
-                result.append("<tr>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(++i).append("\n").append("                    </td>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(score.getPlayer().getName()).append("\n").
-                        append("                    </td>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(score.getScore()).append("\n").
-                        append("                    </td>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(score.getGamesPlayed()).append("\n").
-                        append("                    </td>\n").
-                        append("</tr>\n");
-            }
-
-            result.append("</table>");
-            result.append("</td>");
-        }
+        createScoreTable(result, allScores.get(0), "Rolling Day");
+        createScoreTable(result, allScores.get(1), "Rolling Week");
+        createScoreTable(result, allScores.get(2), "Rolling Month");
+        createScoreTable(result, allScores.get(3), "Total");
 
         return result.toString();
+    }
+
+    private static void createScoreTable(StringBuffer result, TotalScore allScore, String title) {
+        result.append("<td valign=\"top\">");
+        result.append(title);
+        result.append("<table style=\"border:2px solid black;border-collapse:collapse\">\n");
+
+
+        //Header
+        result.append("                <tr>\n").
+                append("                    <th style=\"border:1px solid black;\">#</th>\n").
+                append("                    <th style=\"border:1px solid black;\">Name</th>\n").
+                append("                    <th style=\"border:1px solid black;\">points</th>\n").
+                append("                    <th style=\"border:1px solid black;\">games played</th>\n").
+                append("                </tr>\n");
+
+        int i = 0;
+        List<Score> values = new LinkedList<>(allScore.getAllScores().values());
+        Collections.sort(values);
+        for (Score score : values) {
+            result.append("<tr>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(++i).append("\n").append("                    </td>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(score.getPlayer().getName()).append("\n").
+                    append("                    </td>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(score.getScore()).append("\n").
+                    append("                    </td>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(score.getGamesPlayed()).append("\n").
+                    append("                    </td>\n").
+                    append("</tr>\n");
+        }
+
+        result.append("</table>");
+        result.append("</td>");
     }
 
     public static int getBlueSumTableOne() {
