@@ -11,7 +11,7 @@
 <form action="index.jsp" name="claimVictoryForm" method="POST">
     <table>
         <% if (Util.tableOne != null) { %>
-            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableTwo) == ScoreBoardGenerator.RedDog.TOPDOG) %> bgcolor="red" <%;%> >
+            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableOne) == ScoreBoardGenerator.RedDog.UNDERDOG) %> bgcolor="red" <%;%> >
                 <td width="60px">
                     Red team:
                 </td>
@@ -27,7 +27,7 @@
                 </td>
             </tr>
 
-            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableTwo) == ScoreBoardGenerator.RedDog.UNDERDOG) %> bgcolor="blue" <%;%> >
+            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableOne) == ScoreBoardGenerator.RedDog.TOPDOG) %> bgcolor="blue" <%;%> >
                 <td>
                     Blue team:
                 </td>
@@ -57,7 +57,7 @@
         </tr>
 
         <% if (Util.tableTwo != null) { %>
-            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableTwo) == ScoreBoardGenerator.RedDog.TOPDOG) %> bgcolor="red" <%;%> >
+            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableTwo) == ScoreBoardGenerator.RedDog.UNDERDOG) %> bgcolor="red" <%;%> >
                 <td>
                     Red team:
                 </td>
@@ -73,7 +73,7 @@
                 </td>
             </tr>
 
-            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableTwo) == ScoreBoardGenerator.RedDog.UNDERDOG) %> bgcolor="blue" <%;%> >
+            <tr <% if (ScoreBoardGenerator.getSingleton().getRedDog(Util.tableTwo) == ScoreBoardGenerator.RedDog.TOPDOG) %> bgcolor="blue" <%;%> >
                 <td>
                     Blue team:
                 </td>

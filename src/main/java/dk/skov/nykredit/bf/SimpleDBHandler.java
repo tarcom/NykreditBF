@@ -115,6 +115,10 @@ public class SimpleDBHandler {
     }
 
     public static void addGame(Game game) {
+        Player player_red_1 = game.getPlayer_red_1();
+        Player player_red_2 = game.getPlayer_red_2();
+        Player player_blue_1 = game.getPlayer_blue_1();
+        Player player_blue_2 = game.getPlayer_blue_2();
         String sql = "INSERT INTO tbl_fights( " +
                 "player_red_1, " +
                 "player_red_2, " +
@@ -124,10 +128,10 @@ public class SimpleDBHandler {
                 "winning_table, " +
                 "match_winner) " +
                 "VALUES ('" +
-                game.getPlayer_red_1().getName() + "' , '" +
-                game.getPlayer_red_2().getName() + "' , '" +
-                game.getPlayer_blue_1().getName() + "' , '" +
-                game.getPlayer_blue_2().getName() + "' , " +
+                (player_red_1 != null ? player_red_1.getName() : "DUMMY") + "' , '" +
+                (player_red_2 != null ? player_red_2.getName() : "DUMMY") + "' , '" +
+                (player_blue_1 != null ? player_blue_1.getName() : "DUMMY") + "' , '" +
+                (player_blue_2 != null ? player_blue_2.getName() : "DUMMY") + "' , " +
                 " 1, " +
                 " 1, " +
                 "'" + game.getWinner() + "')";

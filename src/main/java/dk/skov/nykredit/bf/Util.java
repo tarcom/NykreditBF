@@ -56,8 +56,8 @@ public class Util {
                 setup[i] = null;
             }
 
-            tableOne = new Game(setup[0], setup[1], setup[2], setup[3]);
-            tableTwo = new Game(setup[4], setup[5], setup[6], setup[7]);
+            tableOne = new Game(setup[0], setup[2], setup[1], setup[3]);
+            tableTwo = new Game(setup[4], setup[6], setup[5], setup[7]);
         }
 
 
@@ -66,72 +66,84 @@ public class Util {
         if (request.getParameter("t1BlueWinner") != null) {
             tableOne.setRedWinner(false);
             tableOne.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableOne);
-            scoreBoardGenerator.updateGame(tableOne, true);
+            updateScores(tableOne);
+            tableOne = new Game(tableOne);
         }
 
         if (request.getParameter("t1RedWinner") != null) {
             tableOne.setRedWinner(true);
             tableOne.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableOne);
-            scoreBoardGenerator.updateGame(tableOne, true);
+            updateScores(tableOne);
+            tableOne = new Game(tableOne);
         }
 
         if (request.getParameter("t2BlueWinner") != null) {
             tableTwo.setRedWinner(false);
             tableTwo.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableTwo);
-            scoreBoardGenerator.updateGame(tableTwo, true);
+            updateScores(tableTwo);
+            tableTwo = new Game(tableTwo);
         }
 
         if (request.getParameter("t2RedWinner") != null) {
             tableTwo.setRedWinner(true);
             tableTwo.setTimestamp(GregorianCalendar.getInstance().getTime());
-            SimpleDBHandler.addGame(tableTwo);
-            scoreBoardGenerator.updateGame(tableTwo, true);
+            updateScores(tableTwo);
+            tableTwo = new Game(tableTwo);
         }
+    }
+
+    private static void updateScores(Game game) {
+        SimpleDBHandler.addGame(game);
+        scoreBoardGenerator.updateGame(game, true);
     }
 
     public static String generateScoreboard() {
         List<TotalScore> allScores = scoreBoardGenerator.getAllScores();
         StringBuffer result = new StringBuffer();
 
-        for (TotalScore allScore : allScores) {
-            result.append("<td valign=\"top\">");
-            result.append("<table align=\"left\" style=\"border:2px solid black;border-collapse:collapse\">\n");
-
-            //Header
-            result.append("                <tr>\n").
-                    append("                    <th style=\"border:1px solid black;\">#</th>\n").
-                    append("                    <th style=\"border:1px solid black;\">Name</th>\n").
-                    append("                    <th style=\"border:1px solid black;\">points</th>\n").
-                    append("                    <th style=\"border:1px solid black;\">games played</th>\n").
-                    append("                </tr>\n");
-
-            int i = 0;
-            List<Score> values = new LinkedList<>(allScore.getAllScores().values());
-            Collections.sort(values);
-            for (Score score : values) {
-                result.append("<tr>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(++i).append("\n").append("                    </td>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(score.getPlayer().getName()).append("\n").
-                        append("                    </td>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(score.getScore()).append("\n").
-                        append("                    </td>\n").
-                        append("                    <td style=\"border:1px solid black;\">").
-                        append(score.getGamesPlayed()).append("\n").
-                        append("                    </td>\n").
-                        append("</tr>\n");
-            }
-
-            result.append("</table>");
-            result.append("</td>");
-        }
+        createScoreTable(result, allScores.get(0), "Rolling Day");
+        createScoreTable(result, allScores.get(1), "Rolling Week");
+        createScoreTable(result, allScores.get(2), "Rolling Month");
+        createScoreTable(result, allScores.get(3), "Total");
 
         return result.toString();
+    }
+
+    private static void createScoreTable(StringBuffer result, TotalScore allScore, String title) {
+        result.append("<td valign=\"top\">");
+        result.append(title);
+        result.append("<table style=\"border:2px solid black;border-collapse:collapse\">\n");
+
+
+        //Header
+        result.append("                <tr>\n").
+                append("                    <th style=\"border:1px solid black;\">#</th>\n").
+                append("                    <th style=\"border:1px solid black;\">Name</th>\n").
+                append("                    <th style=\"border:1px solid black;\">points</th>\n").
+                append("                    <th style=\"border:1px solid black;\">games played</th>\n").
+                append("                </tr>\n");
+
+        int i = 0;
+        List<Score> values = new LinkedList<>(allScore.getAllScores().values());
+        Collections.sort(values);
+        for (Score score : values) {
+            result.append("<tr>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(++i).append("\n").append("                    </td>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(score.getPlayer().getName()).append("\n").
+                    append("                    </td>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(score.getScore()).append("\n").
+                    append("                    </td>\n").
+                    append("                    <td style=\"border:1px solid black;\">").
+                    append(score.getGamesPlayed()).append("\n").
+                    append("                    </td>\n").
+                    append("</tr>\n");
+        }
+
+        result.append("</table>");
+        result.append("</td>");
     }
 
     public static int getBlueSumTableOne() {
