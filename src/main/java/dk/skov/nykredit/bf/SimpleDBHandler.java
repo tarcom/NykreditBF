@@ -128,10 +128,10 @@ public class SimpleDBHandler {
                 "winning_table, " +
                 "match_winner) " +
                 "VALUES ('" +
-                player_red_1 != null ? player_red_1.getName() : "DUMMY" + "' , '" +
-                player_red_2 != null ? player_red_2.getName() : "DUMMY" + "' , '" +
-                player_blue_1 != null ? player_blue_1.getName() : "DUMMY" + "' , '" +
-                player_blue_2 != null ? player_blue_2.getName() : "DUMMY" + "' , " +
+                (player_red_1 != null ? player_red_1.getName() : "DUMMY") + "' , '" +
+                (player_red_2 != null ? player_red_2.getName() : "DUMMY") + "' , '" +
+                (player_blue_1 != null ? player_blue_1.getName() : "DUMMY") + "' , '" +
+                (player_blue_2 != null ? player_blue_2.getName() : "DUMMY") + "' , " +
                 " 1, " +
                 " 1, " +
                 "'" + game.getWinner() + "')";

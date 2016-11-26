@@ -124,6 +124,22 @@ public class ScoreBoardGenerator {
     }
 
     public int getPointsDifference(Game game, boolean redWins, boolean knowRedPlayersPointsDifference) {
+        int pointsDifferenceIfEqualTeams = getPointsDifferenceIfEqualTeams(game, redWins, knowRedPlayersPointsDifference);
+
+        if (knowRedPlayersPointsDifference && game.getPlayer_red_1() == null && (game.getPlayer_blue_1() != null && game.getPlayer_blue_2() != null)) {
+            pointsDifferenceIfEqualTeams = pointsDifferenceIfEqualTeams * 2;
+        } else if (knowRedPlayersPointsDifference &&game.getPlayer_red_2() == null && (game.getPlayer_blue_1() != null && game.getPlayer_blue_2() != null)) {
+            pointsDifferenceIfEqualTeams = pointsDifferenceIfEqualTeams * 2;
+        } else if (!knowRedPlayersPointsDifference && game.getPlayer_blue_1() == null && (game.getPlayer_red_1() != null && game.getPlayer_red_2() != null)) {
+            pointsDifferenceIfEqualTeams = pointsDifferenceIfEqualTeams * 2;
+        } else if (!knowRedPlayersPointsDifference && game.getPlayer_blue_2() == null && (game.getPlayer_red_1() != null && game.getPlayer_red_2() != null)) {
+            pointsDifferenceIfEqualTeams = pointsDifferenceIfEqualTeams * 2;
+        }
+
+        return pointsDifferenceIfEqualTeams;
+    }
+
+    private int getPointsDifferenceIfEqualTeams(Game game, boolean redWins, boolean knowRedPlayersPointsDifference) {
         RedDog redDog = getRedDog(game);
 
         if (redDog == RedDog.TOPDOG) {
