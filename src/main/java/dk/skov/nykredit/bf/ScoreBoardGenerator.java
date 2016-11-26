@@ -33,6 +33,17 @@ public class ScoreBoardGenerator {
         return allPlayers;
     }
 
+    public List<Player> getAllPlayesSortedByName() {
+        ArrayList<Player> names = new ArrayList<>(allPlayers.values());
+        Collections.sort(names, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+        return names;
+    }
+
     public List<TotalScore> getAllScores() {
         return allScores;
     }
@@ -126,7 +137,7 @@ public class ScoreBoardGenerator {
     public int getPointsDifference(Game game, boolean redWins, boolean knowRedPlayersPointsDifference) {
         int pointsDifferenceIfEqualTeams = getPointsDifferenceIfEqualTeams(game, redWins, knowRedPlayersPointsDifference);
 
-        //If a players wins alone against 2 others, he willdouble his points. 
+        //If a players wins alone against 2 others, he willdouble his points.
         if (knowRedPlayersPointsDifference && game.getPlayer_red_1() == null && (game.getPlayer_blue_1() != null && game.getPlayer_blue_2() != null)) {
             pointsDifferenceIfEqualTeams = pointsDifferenceIfEqualTeams * 2;
         } else if (knowRedPlayersPointsDifference &&game.getPlayer_red_2() == null && (game.getPlayer_blue_1() != null && game.getPlayer_blue_2() != null)) {

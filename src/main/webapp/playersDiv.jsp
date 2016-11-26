@@ -24,7 +24,7 @@
     </tr>
 
     <%
-        for (Player player : ScoreBoardGenerator.getSingleton().getAllPlayers().values()) {
+        for (Player player : ScoreBoardGenerator.getSingleton().getAllPlayesSortedByName()) {
             String playerReadyGreen = player.isReady() ? "bgcolor=\"#7cfc00\"" : "";
     %>
         <tr <%=playerReadyGreen%> >
