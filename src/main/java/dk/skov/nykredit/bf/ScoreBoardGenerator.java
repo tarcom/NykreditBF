@@ -38,7 +38,7 @@ public class ScoreBoardGenerator {
         Collections.sort(names, new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
-                return o1.getName().compareTo(o2.getName());
+                return o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
             }
         });
         return names;
